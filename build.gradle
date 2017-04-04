@@ -27,4 +27,36 @@ dependencies {
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
+    
+    /*
+     * Spring
+     */
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '4.3.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version: '4.3.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.7.RELEASE'
+    
+    /*
+     * Spring-data
+     */
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.11.1.RELEASE'
+    
+    /*
+     * Hibernate
+     */
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.9.Final'
+    compile group: 'org.hibernate', name: 'hibernate-orm', version: '5.2.9.Final'
+    
+    /*
+     * Connectivité à MySQL
+     */
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    
+    /*
+     * Thymeleaf
+     */
+     compile group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '2.1.2.RELEASE'
+    
 }
