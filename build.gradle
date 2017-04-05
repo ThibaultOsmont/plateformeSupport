@@ -28,6 +28,12 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
     
+    
+    /*
+     * Servlet
+     */
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    
     /*
      * Spring
      */
