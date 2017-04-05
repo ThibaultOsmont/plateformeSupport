@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
+
 @Entity
 @Table(name = "PERSONNES")
 public class Personne implements Serializable {
