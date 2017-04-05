@@ -20,7 +20,7 @@ public class Personne implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@Column(name = "NOM", length = 40, nullable = false)
 	private String nom;
 	
@@ -30,14 +30,15 @@ public class Personne implements Serializable {
 	@Column(name="TELEPHONE", length = 10, nullable = false)
 	private String telephone;
 	
-	@Column(name = "MAIL", length = 60, nullable = false)
+	@Column(length = 60)
+	@Email
 	private String mail;
 	
-	@OneToMany(mappedBy="salaries")
-	private List<Personne> salaries;
+	@OneToMany(mappedBy="salarie")
+	private List<Salarie> salaries;
 	
-	@OneToMany(mappedBy="clients")
-	private List<Personne> clients;
+	@OneToMany(mappedBy="client")
+	private List<Client> clients;
 	
 	public Personne(){
 	}

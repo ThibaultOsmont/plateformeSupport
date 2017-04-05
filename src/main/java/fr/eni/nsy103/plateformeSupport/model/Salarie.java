@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -38,6 +39,7 @@ public class Salarie implements Serializable{
 	private Jours jour;
 	
 	@ManyToOne
+	@JoinColumn(name = "salarieId",nullable = false,unique = true)
 	private Personne salarie;
 	
 	public Salarie(){

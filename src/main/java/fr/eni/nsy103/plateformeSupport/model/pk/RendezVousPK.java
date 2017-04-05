@@ -3,47 +3,49 @@ package fr.eni.nsy103.plateformeSupport.model.pk;
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import fr.eni.nsy103.plateformeSupport.model.Client;
 import fr.eni.nsy103.plateformeSupport.model.Salarie;
 
 @Embeddable
 public class RendezVousPK implements Serializable{
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;	
 	
-	private Salarie salarie;	
-	private Client client;
+	private int salarieId;
+	private int clientId;
 	
 	public RendezVousPK(){		
 	}
 	
-	public RendezVousPK(Salarie salarie,Client client){
-		this.salarie = salarie;
-		this.client = client;
+	public RendezVousPK(int salarieId,int clientId){
+		this.salarieId = salarieId;
+		this.clientId = clientId;
 	}
 
-	public Salarie getSalarie() {
-		return salarie;
+	public int getSalarieId() {
+		return salarieId;
 	}
 
-	public void setSalarie(Salarie salarie) {
-		this.salarie = salarie;
+	public void setSalarieId(int salarieId) {
+		this.salarieId = salarieId;
 	}
 
-	public Client getClient() {
-		return client;
+	public int getClientId() {
+		return clientId;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((client == null) ? 0 : client.hashCode());
-		result = prime * result + ((salarie == null) ? 0 : salarie.hashCode());
+		result = prime * result + clientId;
+		result = prime * result + salarieId;
 		return result;
 	}
 
@@ -56,21 +58,10 @@ public class RendezVousPK implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		RendezVousPK other = (RendezVousPK) obj;
-		if (client == null) {
-			if (other.client != null)
-				return false;
-		} else if (!client.equals(other.client))
+		if (clientId != other.clientId)
 			return false;
-		if (salarie == null) {
-			if (other.salarie != null)
-				return false;
-		} else if (!salarie.equals(other.salarie))
+		if (salarieId != other.salarieId)
 			return false;
 		return true;
-	}
-	
-	@Override
-	public String toString(){
-		return "Client : " + client.getClient().getPrenom() + " " + client.getClient().getNom() + " Salarie : " + salarie.getSalarie().getPrenom() + " " + salarie.getSalarie().getNom();
-	}
+	}	
 }
