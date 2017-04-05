@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Conseiller</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+		<link href="bootstrap/css/custom-home.css" rel="stylesheet" type="text/css">
+		<script src="bootstrap/js/jquery-3.2.0.js" language="javascript" type="text/javascript"></script>
+		<script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+		<script src="bootstrap/js/custom.js" language="javascript" type="text/javascript"></script>
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+					<a class="navbar-brand" href="#"><img src="bootstrap/img/logo.png" style="width:50px;height: auto; margin-top:-15px;" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li class="active tabs" id="LIHome" onclick="showAndHide('LIHome', 'Home');"><a href="#">Home</a></li>
+						<li class="tabs" id="LIClients" onclick="showAndHide('LIClients', 'Clients');"><a href="#">Clients</a></li>
+						<li class="tabs" id="LIConseillers" onclick="showAndHide('LIConseillers', 'Conseillers');"><a href="#">Conseillers</a></li>
+						<li class="tabs" id="LIRendezVous" onclick="showAndHide('LIRendezVous', 'RendezVous');"><a href="#">Rendez-vous</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#" data-toggle="modal" data-target="#parameters-modal">
+								<span class="glyphicon glyphicon-option-vertical"></span> Paramètres</a>
+							<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-sm">
+									<div class="modal-content"><br>
+										<div class="bs-example bs-example-tabs">
+											<ul id="myTab" class="nav nav-tabs">
+												<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
+												<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
+											</ul>
+										</div>
+										<div class="modal-body">
+											<div id="myTabContent" class="tab-content">
+												<div class="tab-pane fade active in" id="parameters">
+													<form class="form-horizontal">
+														<fieldset>
+														<!-- Parameters for the current user -->
+															<!-- Text input-->
+															<div class="control-group">
+																<label class="control-label" for="Nom">Nom :</label>
+																<div class="controls">
+																	<span 
+																</div>
+															</div>
+
+															<!-- Password input-->
+															<div class="control-group">
+																<label class="control-label" for="prenom">Prénom :</label>
+																<div class="controls">
+																	<input id="prenom" name="prenom" type="text" class="form-control input-medium" required="">
+																</div>
+															</div>
+															
+															<!-- Mail input-->
+															<div class="control-group">
+																<label class="control-label" for="email">Mail :</label>
+																<div class="controls">
+																	<input id="email" name="email" type="email" class="form-control input-medium" required="">
+																</div>
+															</div>
+															
+															<!-- Phone input-->
+															<div class="control-group">
+																<label class="control-label" for="telephone">Téléphone :</label>
+																<div class="controls">
+																	<input id="telephone" name="telephone" type="text" class="form-control input-medium" required="">
+																</div>
+															</div>
+															
+															<!-- Button -->
+															<center>
+																<div class="control-group">
+																	<label class="control-label" for="save"></label>
+																	<div class="controls">
+																		<button id="save" name="save" class="btn btn-success btn-block">Enregistrer</button>
+																	</div>
+																</div>
+															</center>
+														</fieldset>
+													</form>
+												</div>
+												<div class="tab-pane fade" id="logout">
+													<div class="form-horizontal">
+														<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
+														<hr>
+														<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
+													</div><!-- A CHANGER -->
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<center>
+												<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+											</center>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+  
+		<div class="container-fluid text-center">    
+			<div class="row content">
+				<div class="col-sm-8 text-left tab_content" id="Home"> 
+					<h1>Home</h1>
+					<hr>
+				</div>
+				<div class="col-sm-8 text-left tab_content" id="Clients" style="display:none;">
+					<h1>Clients</h1>
+					<hr>
+					<table class="table table-hover table-responsive">
+						<thead>
+							<tr>
+								<th>NOM Prénom</th>
+								<th>Téléphone</th>
+								<th>Email</th>
+							</tr>
+						</thead>
+						<tbody><!-- A CHANGER -->
+<!--							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+-->						</tbody>
+					</table>
+				</div>
+				<div class="col-sm-8 text-left tab_content" id="Conseillers" style="display:none;">
+					<h1>Conseillers</h1>
+					<hr>
+					<table class="table table-hover table-responsive">
+						<thead>
+							<tr>
+								<th>NOM Prénom</th>
+								<th>Téléphone</th>
+								<th>Email</th>
+								<th>Login</th>
+								<th>Jour de travail</th>
+								<th>En ligne</th>
+							</tr>
+						</thead>
+						<tbody><!-- A CHANGER -->
+<!--							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+-->						</tbody>
+					</table>
+				</div>
+				<div class="col-sm-8 text-left tab_content" id="RendezVous" style="display:none;">
+					<h1>Rendez-vous</h1>
+					<hr>
+					<table class="table table-hover table-responsive">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Matin ou Après-midi</th>
+								<th>Client</th>
+								<th>Contact</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody><!-- A CHANGER -->
+<!--							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+-->						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="container-fluid text-center">
+			<p>Made with bootstrap & jquery</p>
+		</footer>
+	</body>
+</html>
