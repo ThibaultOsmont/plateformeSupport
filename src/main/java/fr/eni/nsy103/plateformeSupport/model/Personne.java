@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity(name = "Personne")
+@Entity
+@Table(name = "PERSONNES")
 public class Personne implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,22 +21,22 @@ public class Personne implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(length = 40,nullable = true)
+	@Column(name = "NOM", length = 40, nullable = false)
 	private String nom;
 	
-	@Column(length = 40,nullable = true)
+	@Column(name="PRENOM", length = 40, nullable = false)
 	private String prenom;
 	
-	@Column(length = 10)
+	@Column(name="TELEPHONE", length = 10, nullable = false)
 	private String telephone;
 	
-	@Column(length = 60)
+	@Column(name = "MAIL", length = 60, nullable = false)
 	private String mail;
 	
-	@OneToMany(mappedBy="salarie")
+	@OneToMany(mappedBy="salaries")
 	private List<Personne> salaries;
 	
-	@OneToMany(mappedBy="client")
+	@OneToMany(mappedBy="clients")
 	private List<Personne> clients;
 	
 	public Personne(){

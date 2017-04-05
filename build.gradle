@@ -6,9 +6,29 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at https://docs.gradle.org/2.14.1/userguide/tutorial_java_projects.html
  */
+ 
+ 
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        // NOTE: You should declare only repositories that you need here
+        mavenLocal()
+        mavenCentral()
+        maven { url "http://repo.spring.io/release" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -52,5 +72,17 @@ dependencies {
      * SQL Server
      */
     compile group: 'com.microsoft.sqlserver', name: 'sqljdbc4', version: '4.0'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.11'
+}
+
+task "forceTest" {
+    dependsOn "cleanTest", "test"
+}
+
+task "fullBuild" {
+    dependsOn "cleanTest", "test", "check", "build"
 }
 

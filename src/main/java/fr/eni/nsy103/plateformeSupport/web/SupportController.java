@@ -6,11 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SupportController {
-	
+
 	@RequestMapping("/index")
 	public String accueil(Model m) {
-		m.addAttribute("message", "niktamer");
+		m.addAttribute("name", "baptou fragile");
 		System.out.println("Hello");
-		return "index.html";
+		return "/index";
 	}
+
+	// @RequestMapping("/error")
+	// public void erreur() {
+	// System.out.println("erreur");
+	// }
 }

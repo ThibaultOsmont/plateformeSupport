@@ -10,25 +10,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import fr.eni.nsy103.plateformeSupport.enumerations.Jours;
 
 @Entity
+@Table(name = "SALARIES")
 public class Salarie implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@Column(name = "ID_SALARIE")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(nullable = false,unique = true,length = 30)
+	@Column(name = "LOG_IN", nullable = false, unique = true,length = 30)
 	private String login;
 	
-	@Column(nullable = false,length = 15)
+	@Column(name = "PWD", nullable = false,length = 15)
 	private String pwd;
 	
-	@Column(nullable = false)
+	@Column(name = "PRESENCE", nullable = false)
 	private boolean presence;
 	
 	@Enumerated(EnumType.ORDINAL)
