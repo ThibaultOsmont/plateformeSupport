@@ -9,8 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity(name = "Personne")
+import org.hibernate.validator.constraints.Email;
+
+@Entity(name = "PERSONNES")
+@Table(name = "PERSONNES")
 public class Personne implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,23 +23,24 @@ public class Personne implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(length = 40,nullable = true)
+	@Column(length = 40,nullable = false)
 	private String nom;
 	
-	@Column(length = 40,nullable = true)
+	@Column(length = 40,nullable = false)
 	private String prenom;
 	
 	@Column(length = 10)
 	private String telephone;
 	
 	@Column(length = 60)
+	@Email
 	private String mail;
 	
 	@OneToMany(mappedBy="salarie")
-	private List<Personne> salaries;
+	private List<Salarie> salaries;
 	
 	@OneToMany(mappedBy="client")
-	private List<Personne> clients;
+	private List<Client> clients;
 	
 	public Personne(){
 	}

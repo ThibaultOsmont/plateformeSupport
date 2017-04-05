@@ -9,12 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import fr.eni.nsy103.plateformeSupport.model.pk.RendezVousPK;
 
-@Entity
+@Entity(name = "RENDEZVOUS")
+@Table(name = "RENDEZVOUS")
 public class RendezVous implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
