@@ -1,9 +1,11 @@
 package fr.eni.nsy103.plateformeSupport.repository;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import fr.eni.nsy103.plateformeSupport.model.Profil;
 
-public interface ProfilRepository  extends Repository<Profil,Long>{
+@Repository
+public interface ProfilRepository  extends JpaRepository<Profil,Long>{
 	
 }

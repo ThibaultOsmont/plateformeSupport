@@ -1,9 +1,11 @@
 package fr.eni.nsy103.plateformeSupport.repository;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import fr.eni.nsy103.plateformeSupport.model.Client;
 
-public interface ClientRepository  extends Repository<Client,Long>{
+@Repository
+public interface ClientRepository  extends JpaRepository<Client,Long>{
 	
 }

@@ -7,6 +7,8 @@
 <body>
 	<h1 th:inline="text">Hello [[${name}]]</h1>
 	
-	<h1 th:text="${name}">Problème</h1>
+	<p th:each="pers: ${personnes}">
+		<h1 th:text="${pers.nom}"></h1>
+	</p>
 </body>
 </html>

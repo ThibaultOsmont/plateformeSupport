@@ -1,9 +1,11 @@
 package fr.eni.nsy103.plateformeSupport.repository;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import fr.eni.nsy103.plateformeSupport.model.Salarie;
 
-public interface SalarieRepository  extends Repository<Salarie,Long>{
+@Repository
+public interface SalarieRepository  extends JpaRepository<Salarie,Long>{
 
 }
