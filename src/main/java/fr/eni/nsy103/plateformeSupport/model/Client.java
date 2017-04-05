@@ -3,12 +3,11 @@ package fr.eni.nsy103.plateformeSupport.model;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Client implements Serializable {
@@ -19,14 +18,8 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(length = 10)
-	private String telephone;
-	
-	@Column(length = 60)
-	private String mail;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Personne personne;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Personne client;
 	
 	public Client(){
 	}
@@ -39,27 +32,44 @@ public class Client implements Serializable {
 		this.id = id;
 	}
 
-	public String getTelephone() {
-		return telephone;
+	public Personne getClient() {
+		return client;
 	}
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setClient(Personne client) {
+		this.client = client;
 	}
 
-	public String getMail() {
-		return mail;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + id;
+		return result;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Client other = (Client) obj;
+		if (client == null) {
+			if (other.client != null)
+				return false;
+		} else if (!client.equals(other.client))
+			return false;
+		if (id != other.id)
+			return false;
+		return true;
 	}
-
-	public Personne getPersonne() {
-		return personne;
+	
+	@Override
+	public String toString(){
+		return client.getPrenom() + " " + client.getNom();
 	}
-
-	public void setPersonne(Personne personne) {
-		this.personne = personne;
-	}	
 }

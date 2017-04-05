@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import fr.eni.nsy103.plateformeSupport.enumerations.Jours;
 
@@ -25,7 +26,7 @@ public class Salarie implements Serializable{
 	private String login;
 	
 	@Column(nullable = false,length = 15)
-	private String password;
+	private String pwd;
 	
 	@Column(nullable = false)
 	private boolean presence;
@@ -33,7 +34,8 @@ public class Salarie implements Serializable{
 	@Enumerated(EnumType.ORDINAL)
 	private Jours jour;
 	
-	private Personne personne;
+	@ManyToOne
+	private Personne salarie;
 	
 	public Salarie(){
 		
@@ -56,21 +58,21 @@ public class Salarie implements Serializable{
 	}
 
 	public String getPassword() {
-		return password;
+		return pwd;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Personne getPersonne() {
-		return personne;
-	}
-
-	public void setPersonne(Personne personne) {
-		this.personne = personne;
+		this.pwd = password;
 	}
 	
+	public Personne getSalarie() {
+		return salarie;
+	}
+
+	public void setSalarie(Personne salarie) {
+		this.salarie = salarie;
+	}
+
 	public boolean isPresence() {
 		return presence;
 	}
@@ -85,10 +87,44 @@ public class Salarie implements Serializable{
 
 	public void setJour(Jours jour) {
 		this.jour = jour;
+	}	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((jour == null) ? 0 : jour.hashCode());
+		result = prime * result + (presence ? 1231 : 1237);
+		result = prime * result + ((salarie == null) ? 0 : salarie.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Salarie other = (Salarie) obj;
+		if (id != other.id)
+			return false;
+		if (jour != other.jour)
+			return false;
+		if (presence != other.presence)
+			return false;
+		if (salarie == null) {
+			if (other.salarie != null)
+				return false;
+		} else if (!salarie.equals(other.salarie))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString(){
-		return personne.getPrenom() + " " + personne.getNom();
+		return salarie.getPrenom() + " " + salarie.getNom();
 	}
 }

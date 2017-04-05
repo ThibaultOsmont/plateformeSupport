@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import fr.eni.nsy103.plateformeSupport.enumerations.UserStatus;
 
@@ -24,6 +25,7 @@ public class Profil implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private UserStatus userStatus;
 	
+	@OneToOne
 	private Salarie salarie;
 	
 	public Profil(){
@@ -52,5 +54,42 @@ public class Profil implements Serializable{
 
 	public void setSalarie(Salarie salarie) {
 		this.salarie = salarie;
-	}		
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((salarie == null) ? 0 : salarie.hashCode());
+		result = prime * result
+				+ ((userStatus == null) ? 0 : userStatus.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Profil other = (Profil) obj;
+		if (id != other.id)
+			return false;
+		if (salarie == null) {
+			if (other.salarie != null)
+				return false;
+		} else if (!salarie.equals(other.salarie))
+			return false;
+		if (userStatus != other.userStatus)
+			return false;
+		return true;
+	}
+	
+	@Override
+	public String toString(){
+		return salarie.getSalarie().getPrenom() + " " + salarie.getSalarie().getNom() + " statut : " + userStatus.name(); 
+	}
 }
