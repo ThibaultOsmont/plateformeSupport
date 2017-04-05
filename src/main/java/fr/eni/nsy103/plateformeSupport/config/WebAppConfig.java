@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.spring4.SpringTemplateEngine;
@@ -34,12 +33,6 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 				.defaultContentType(MediaType.APPLICATION_JSON_UTF8);
 	}
 
-	@Override
-	public void configureDefaultServletHandling(
-			DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-	}
-
 	@Bean("templateResolver")
 	public SpringResourceTemplateResolver templateResolver() {
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -48,7 +41,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
 	}
-
+	
 	@Bean("templateEngine")
 	public SpringTemplateEngine templateEngine() {
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
