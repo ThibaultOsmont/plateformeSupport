@@ -8,9 +8,9 @@ package fr.eni.nsy103.plateformeSupport.config;
  */
 public class ConfigProperties {
 	protected final static String DATABASE_DRIVER = "";
-	protected final static String DATABASE_URL = "http://10.15.200.4:3306/";
-	protected final static String DATABASE_USER = "root";
-	protected final static String DATABASE_PWD = "";
+	protected final static String DATABASE_URL = "10.15.200.4,49172";
+	protected final static String DATABASE_USER = "sa";
+	protected final static String DATABASE_PWD = "Pa$$w0rd";
 	
 	protected final static String[] packagesToScan = {
 		"fr.eni.nsy103.plateformeSupport.dao"
