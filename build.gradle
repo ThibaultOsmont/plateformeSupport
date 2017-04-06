@@ -62,7 +62,12 @@ dependencies {
      * Thymeleaf
      */
      compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.5.2.RELEASE'
-	
+     
+     /*
+      * Neko HTML pour thymeleaf
+	  */     
+	  compile group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
+	  
 	/*
      * Hibernate
      */
