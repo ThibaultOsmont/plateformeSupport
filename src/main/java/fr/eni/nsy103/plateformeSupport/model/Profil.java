@@ -30,7 +30,7 @@ public class Profil implements Serializable {
 	private String id_profil;
 
 	@Column(name = "USERSTATUS")
-	private UserStatus userStatus;
+	private String userStatus;
 	
 	@OneToOne
 	@JoinColumn(name = "ID_PROFIL")
@@ -45,11 +45,11 @@ public class Profil implements Serializable {
 	}
 
 	public String getUserStatus() {
-		return userStatus.name();
+		return userStatus;
 	}
 
 	public void setUserStatus(String userStatus) {
-		this.userStatus = UserStatus.valueOf(userStatus);
+		this.userStatus = userStatus;
 	}
 
 	public Salarie getSalarie() {

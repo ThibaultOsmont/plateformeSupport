@@ -7,9 +7,9 @@
 		<link th:href="@{/static/bootstrap/css/bootstrap.css}" href="../static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link th:href="@{/static/bootstrap/css/bootstrap-theme.css}" rel="stylesheet" type="text/css">
 		<link th:href="@{/static/bootstrap/css/custom.css}" rel="stylesheet" type="text/css">
-		<script th:src="@{/static/bootstrap/js/jquery-3.2.0.js}" language="javascript" type="text/javascript"></script>
+		<script th:src="@{/static/bootstrap/js/jquery-3.2.0.js}" type="text/javascript"></script>
 		<script th:src="@{/static/bootstrap/js/bootstrap.js}" type="text/javascript"></script>
-		<script th:src="@{/static/bootstrap/js/custom.js}" type="text/javascript" language="javascript"></script>
+		<script th:src="@{/static/bootstrap/js/custom.js}" type="text/javascript"></script>
 
 		<script th:src="@{/static/js/index.js}"></script> 
 	</head>
@@ -157,7 +157,7 @@
 			</div>
 		</nav>
 		
-		<div class="alert alert-danger" th:if="${errorMessage != null}">
+		<div class="alert alert-danger" th:if="${errorMessage != ''}">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			<strong>Erreur</strong> <p th:text="${errorMessage}"></p>
 		</div>
