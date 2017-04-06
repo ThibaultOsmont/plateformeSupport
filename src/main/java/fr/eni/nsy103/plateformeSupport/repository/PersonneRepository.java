@@ -12,9 +12,5 @@ import fr.eni.nsy103.plateformeSupport.model.Personne;
 @Repository
 public interface PersonneRepository extends JpaRepository<Personne,Long>{
 	@Query("SELECT p  FROM Personne p where p.nom = :lastname AND p.prenom = :firstname")
-	public List<Personne> findByLastname(@Param("lastname") String lastname,@Param("firstname") String firstname);
-<<<<<<< HEAD
+	public List<Personne> findPersonneByLastnameFirstname(@Param("lastname") String lastname,@Param("firstname") String firstname);
 }
-=======
-}	
->>>>>>> origin/master
