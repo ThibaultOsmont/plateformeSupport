@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link th:href="@{/static/bootstrap/css/bootstrap.css}" href="../static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link th:href="@{/static/bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css">
 		<link th:href="@{/static/bootstrap/css/bootstrap-theme.css}" rel="stylesheet" type="text/css">
 		<link th:href="@{/static/bootstrap/css/custom.css}" rel="stylesheet" type="text/css">
 		<script th:src="@{/static/bootstrap/js/jquery-3.2.0.js}" type="text/javascript"></script>
@@ -32,15 +32,16 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 							<a href="#" data-toggle="modal" data-target="#login-modal">
-								<span class="glyphicon glyphicon-log-in"></span> Connexion/inscription</a>
+								<span class="glyphicon glyphicon-log-in"></span> Connexion</a>
 							<div class="modal fade bs-modal-sm" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-sm">
 									<div class="modal-content"><br>
 										<div class="bs-example bs-example-tabs">
-											<ul id="myTab" class="nav nav-tabs">
-												<li class="active"><a href="#signin" data-toggle="tab">Connexion</a></li>
-												<li class=""><a href="#signup" data-toggle="tab">Inscription</a></li>
-											</ul>
+											<center>
+												<ul id="myTab" class="nav nav-tabs">
+													<li class="active"><a href="#signin" data-toggle="tab">Connexion</a></li>
+												</ul>
+											</center>
 										</div>
 										<div class="modal-body">
 											<div id="myTabContent" class="tab-content">
@@ -70,71 +71,6 @@
 																	<label class="control-label" for="signin"></label>
 																	<div class="controls">
 																		<button type="submit" id="signin" name="signin" class="btn btn-success btn-block">Se connecter</button>
-																	</div>
-																</div>
-															</center>
-														</fieldset>
-													</form>
-												</div>
-												<div class="tab-pane fade" id="signup">
-													<form id="inscription" class="form-horizontal">
-														<fieldset>
-														<!-- Sign Up Form -->
-															<!-- Text input-->
-															<div class="control-group">
-																<label class="control-label" for="prenom">Prénom :</label>
-																<div class="controls">
-																	<input id="prenom" name="prenom" type="text" class="form-control input-large" required="">
-																</div>
-															</div>
-															
-															<!-- Text input-->
-															<div class="control-group">
-																<label class="control-label" for="nom">Nom :</label>
-																<div class="controls">
-																	<input id="nom" name="nom" type="text" class="form-control input-large" required="">
-																</div>
-															</div>
-					
-															<!-- Text input-->
-															<div class="control-group">
-																<label class="control-label" for="Email">Email :</label>
-																<div class="controls">
-																	<input id="Email" name="Email" type="email" class="form-control input-large" required="">
-																</div>
-															</div>
-															
-															<!-- Text input-->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Téléphone :</label>
-																<div class="controls">
-																	<input id="telephone" name="telephone" type="text" class="form-control input-large" required="">
-																</div>
-															</div>
-															
-															<!-- Password input-->
-															<div class="control-group">
-																<label class="control-label" for="pwd2">Mot de passe :</label>
-																<div class="controls">
-																	<input id="pwd2" name="pwd2" type="password" class="form-control input-large" minlength="8" maxlength="15" required="">
-																	<em>8-15 Characters</em>
-																</div>
-															</div>
-															
-															<!-- Text input-->
-															<div class="control-group">
-																<label class="control-label" for="pwd3">Confirmer le mot de passe:</label>
-																<div class="controls">
-																	<input id="pwd3" name="pwd3" type="password" class="form-control input-large" onkeyup="checkPass(); return false;" required="">
-																</div>
-															</div>
-					
-															<!-- Button -->
-															<center>
-																<div class="control-group">
-																	<label class="control-label" for="confirmsignup"></label>
-																	<div class="controls">
-																		<button type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success btn-block">S'incrire</button>
 																	</div>
 																</div>
 															</center>
