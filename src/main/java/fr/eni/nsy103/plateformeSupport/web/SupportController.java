@@ -38,7 +38,12 @@ public class SupportController {
 	
 	@Autowired
 	private ProfilRepository rProfil;
-
+	
+	@RequestMapping("/")
+	public String home() {
+		return "redirect:/index";
+	}
+	
 	/**
 	 * Page d'accueil.
 	 * @param m
@@ -83,12 +88,14 @@ public class SupportController {
 		 * Authentification réussie
 		 */
 		if(null != sal) {
-			session.setAttribute("salarieAuth", sal);
 			Profil userProfile = rProfil.findById(sal.getId());
+			session.setAttribute("salarieAuth", sal);
+			session.setAttribute("profil", userProfile.getUserStatus());
+			
 			/**
 			 * Redirection selon le profil du salarié
 			 */
-			return "/" + userProfile.getUserStatus().toLowerCase();
+			return "redirect:/" + userProfile.getUserStatus().toLowerCase();
 		} else {
 			/**
 			 * Échec authentification

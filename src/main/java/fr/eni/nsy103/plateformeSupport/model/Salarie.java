@@ -32,7 +32,7 @@ public class Salarie implements Serializable {
 	
 	@Column(name = "JOUR")
 	private Short jour;
-	
+
 	@OneToOne(mappedBy = "salarie")
 	@JoinColumn(name = "ID_SALARIE")
 	private Personne personne;
@@ -79,6 +79,14 @@ public class Salarie implements Serializable {
 
 	public void setJour(short jour) {
 		this.jour = jour;
+	}
+	
+	public Personne getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
 
 	@Override
