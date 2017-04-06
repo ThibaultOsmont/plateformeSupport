@@ -11,6 +11,6 @@ import fr.eni.nsy103.plateformeSupport.model.Client;
 
 @Repository
 public interface ClientRepository  extends JpaRepository<Client,Long>{
-	/*@Query("Select c from Client c Where c.client.nom = :lastname and c.client.prenom = :firstname")
-	public List <Client> findByLastname(@Param("lastname") String lastname,@Param("firstname") String firstname);*/
+	@Query("Select c from Client c Where c.client.nom = :lastname and c.client.prenom = :firstname")
+	public List <Client> findClientByLastnameFirstname(@Param("lastname") String lastname,@Param("firstname") String firstname);
 }
