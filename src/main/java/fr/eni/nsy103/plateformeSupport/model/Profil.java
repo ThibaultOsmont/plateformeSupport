@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import fr.eni.nsy103.plateformeSupport.util.enums.UserStatus;
+
 /**
  * Table Profil
  * 
@@ -28,7 +30,7 @@ public class Profil implements Serializable {
 	private String id_profil;
 
 	@Column(name = "USERSTATUS")
-	private String userStatus;
+	private UserStatus userStatus;
 	
 	@OneToOne
 	@JoinColumn(name = "ID_PROFIL")
@@ -43,11 +45,11 @@ public class Profil implements Serializable {
 	}
 
 	public String getUserStatus() {
-		return userStatus;
+		return userStatus.name();
 	}
 
 	public void setUserStatus(String userStatus) {
-		this.userStatus = userStatus;
+		this.userStatus = UserStatus.valueOf(userStatus);
 	}
 
 	public Salarie getSalarie() {
