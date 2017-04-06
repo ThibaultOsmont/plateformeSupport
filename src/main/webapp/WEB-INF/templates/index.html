@@ -156,6 +156,12 @@
 				</div>
 			</div>
 		</nav>
+		
+		<div class="alert alert-danger" th:if="${errorMessage != null}">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>Erreur</strong> <p th:text="${errorMessage}"></p>
+		</div>
+		
 		<div class="container-fluid text-center">    
 			<div class="row content">
 				<div class="col-sm-8 text-left"> 

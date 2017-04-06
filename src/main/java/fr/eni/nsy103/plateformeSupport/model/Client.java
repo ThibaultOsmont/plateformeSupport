@@ -18,7 +18,8 @@ public class Client {
 	
 	@OneToOne(mappedBy = "client")
 	@JoinColumn(name = "ID_CLIENT")
-	private Personne personne;
+	private Personne client;
+	
 
 	public String getId_client() {
 		return id_client;
@@ -29,11 +30,11 @@ public class Client {
 	}
 
 	public Personne getPersonne() {
-		return personne;
+		return client;
 	}
 
 	public void setPersonne(Personne personne) {
-		this.personne = personne;
+		this.client = personne;
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class Client {
 		result = prime * result
 				+ ((id_client == null) ? 0 : id_client.hashCode());
 		result = prime * result
-				+ ((personne == null) ? 0 : personne.hashCode());
+				+ ((client == null) ? 0 : client.hashCode());
 		return result;
 	}
 
@@ -61,17 +62,17 @@ public class Client {
 				return false;
 		} else if (!id_client.equals(other.id_client))
 			return false;
-		if (personne == null) {
-			if (other.personne != null)
+		if (client == null) {
+			if (other.client != null)
 				return false;
-		} else if (!personne.equals(other.personne))
+		} else if (!client.equals(other.client))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Client [id_client=" + id_client + ", personne=" + personne
+		return "Client [id_client=" + id_client + ", personne=" + client
 				+ "]";
 	}
 }
