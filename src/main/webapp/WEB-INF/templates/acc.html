@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-<!-- A CHANGER -->
 	<head>
-		<title>Accueil</title><!-- A CHANGER -->
+		<title>Centre d'accueil</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
-		<link href="bootstrap/css/custom-home.css" rel="stylesheet" type="text/css">
+		<link href="bootstrap/css/custom.css" rel="stylesheet" type="text/css">
 		<script src="bootstrap/js/jquery-3.2.0.js" language="javascript" type="text/javascript"></script>
 		<script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
 		<script src="bootstrap/js/custom.js" language="javascript" type="text/javascript"></script>
@@ -32,49 +31,80 @@
 						<li class="tabs" id="LIRendezVous" onclick="showAndHide('LIRendezVous', 'RendezVous');"><a href="#">Rendez-vous</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="tabs">
-							<a href="#" data-toggle="modal" data-target="#parameter">
-							<span class="glyphicon glyphicon-cog"></span> Connecté en tant que <i>réceptionniste</i></a>
-							<div id="parameter" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+						<li>
+							<a href="#" data-toggle="modal" data-target="#parameters-modal">
+								<span class="glyphicon glyphicon-option-vertical"></span> Paramètres</a>
+							<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-sm">
-									<div class="modal-content">
-										<div class="modal-header"><h4>Informations <i class="fa fa-lock"></i></h4></div>
-										<div class="modal-body"><i class="fa fa-question-circle"></i> Vos infos personnelles :</div>
-										<div class="control-group">
-										<div class="controls">
-											<label class="control-label" for="Name">Nom :</label>
-											<input  id="Nom" name="Nom" type="text" value="" class="form-control input-mini" required="">
-																					<!-- A CHANGER -->
-											<label class="control-label" for="Name">Prénom :</label>
-											<input  id="Prenom" name="Prenom" type="text" value="" class="form-control input-mini" required="">
-																					<!-- A CHANGER -->
-											<label class="control-label" for="Name">Mail :</label>
-											<input  id="Mail" name="Mail" type="text" value="" class="form-control input-mini" required="">
-																					<!-- A CHANGER -->
-											<label class="control-label" for="Name">Téléphone :</label>
-											<input  id="Telephone" name="Telephone" type="text" value="" class="form-control input-mini" required="">
-																					<!-- A CHANGER -->
+									<div class="modal-content"><br>
+										<div class="bs-example bs-example-tabs">
+											<ul id="myTab" class="nav nav-tabs">
+												<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
+												<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
+											</ul>
 										</div>
+										<div class="modal-body">
+											<div id="myTabContent" class="tab-content">
+												<div class="tab-pane fade active in" id="parameters">
+													<form class="form-horizontal">
+														<fieldset>
+														<!-- Parameters for the current user -->
+															<!-- Text -->
+															<div class="control-group">
+																<label class="control-label" for="Nom">Nom :</label>
+																<div class="controls">
+																	<span class="label label-info">Nom</span>
+																</div>
+															</div>
+
+															<!-- Password -->
+															<div class="control-group">
+																<label class="control-label" for="prenom">Prénom :</label>
+																<div class="controls">
+																	<span class="label label-info">Prénom</span>
+																</div>
+															</div>
+															
+															<!-- Mail -->
+															<div class="control-group">
+																<label class="control-label" for="email">Mail :</label>
+																<div class="controls">
+																	<span class="label label-info">Mail</span>
+																</div>
+															</div>
+															
+															<!-- Phone -->
+															<div class="control-group">
+																<label class="control-label" for="telephone">Téléphone :</label>
+																<div class="controls">
+																	<span class="label label-info">Téléphone</span>
+																</div>
+															</div>
+															
+															<!-- Profil -->
+															<div class="control-group">
+																<label class="control-label" for="telephone">Profil :</label>
+																<div class="controls">
+																	<span class="label label-info">Profil</span>
+																</div>
+															</div>
+														</fieldset>
+													</form>
+												</div>
+												<div class="tab-pane fade" id="logout">
+													<div class="form-horizontal">
+														<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
+														<hr>
+														<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
+													</div><!-- A CHANGER -->
+												</div>
+											</div>
 										</div>
 										<div class="modal-footer">
-										<a href="javascript:;" class="btn btn-danger">Fermer</a>
-														<!-- A CHANGER -->
-											<a href="javascript:;" class="btn btn-success">Enregistrer</a>
-														<!-- A CHANGER -->
+											<center>
+												<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+											</center>
 										</div>
-									</div>								
-								</div>
-							</div>
-						</li>
-						<li class="tabs">
-							<a href="#" data-toggle="modal" data-target="#logout">
-							<span class="glyphicon glyphicon-log-in"></span> Déconnexion</a>
-							<div id="logout" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-								<div class="modal-dialog modal-sm">
-									<div class="modal-content">
-										<div class="modal-header"><h4>Déconnexion <i class="fa fa-lock"></i></h4></div>
-										<div class="modal-body"><i class="fa fa-question-circle"></i> Êtes-vous sûr de vouloir vous déconnecter ?</div>
-										<div class="modal-footer"><a href="javascript:<!-- A CHANGER -->;" class="btn btn-danger btn-block">Déconnexion</a></div>
 									</div>
 								</div>
 							</div>
@@ -93,12 +123,15 @@
 				<div class="col-sm-8 text-left tab_content" id="Clients" style="display:none;">
 					<h1>Clients</h1>
 					<hr>
+					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
 						<thead>
 							<tr>
 								<th>NOM Prénom</th>
 								<th>Téléphone</th>
 								<th>Email</th>
+								<th>Modifier</th>
+								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody><!-- A CHANGER -->
@@ -113,6 +146,7 @@
 				<div class="col-sm-8 text-left tab_content" id="Conseillers" style="display:none;">
 					<h1>Conseillers</h1>
 					<hr>
+					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
 						<thead>
 							<tr>
@@ -121,7 +155,8 @@
 								<th>Email</th>
 								<th>Login</th>
 								<th>Jour de travail</th>
-								<th>En ligne</th>
+								<th>Modifier</th>
+								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody><!-- A CHANGER -->
@@ -139,6 +174,7 @@
 				<div class="col-sm-8 text-left tab_content" id="RendezVous" style="display:none;">
 					<h1>Rendez-vous</h1>
 					<hr>
+					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
 						<thead>
 							<tr>
@@ -146,7 +182,8 @@
 								<th>Matin ou Après-midi</th>
 								<th>Client</th>
 								<th>Contact</th>
-								<th></th>
+								<th>Modifier</th>
+								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody><!-- A CHANGER -->

@@ -2,11 +2,10 @@ function showAndHide(idli, iddiv) {
 	document.getElementsByClassName('active')[0].setAttribute('class','tabs');
 	document.getElementById(idli).setAttribute('class', 'tabs active');
 	
-	document.getElementById('Home').style.display = "none";
-	document.getElementById('Clients').style.display = "none";
-	document.getElementById('Conseillers').style.display = "none";
-	document.getElementById('RendezVous').style.display = "none";
-
+	for (var i=0;i<document.getElementsByClassName("tab_content").length;i++) {
+		document.getElementsByClassName("tab_content")[i].style.display = "none";
+	}
+	
 	document.getElementById(iddiv).style.display = 'block';
 }
 
@@ -36,4 +35,8 @@ function checkPass() {
 		message.style.color = badColor;
 		message.innerHTML = "Passwords Do Not Match!"
 	}
-}  
+}
+
+function refresh() {
+	$('.table').load(window.location.href +  ' .table', console.log("OK"));
+}
