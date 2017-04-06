@@ -4,49 +4,49 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import fr.eni.nsy103.plateformeSupport.enumerations.UserStatus;
-
+/**
+ * Table Profil
+ * 
+ * @author tosmont2016
+ *
+ */
 @Entity
 @Table(name = "PROFILS")
-public class Profil implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Profil implements Serializable {
 	
+	/**
+	 * UID
+	 */
+	private static final long serialVersionUID = 9008611685057435478L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	@Column(length = 3)
-	@Enumerated(EnumType.STRING)
-	private UserStatus userStatus;
+	private String id_profil;
+
+	@Column(name = "USERSTATUS")
+	private String userStatus;
 	
 	@OneToOne
+	@JoinColumn(name = "ID_PROFIL")
 	private Salarie salarie;
-	
-	public Profil(){
-		
+
+	public String getId() {
+		return id_profil;
 	}
 
-	public int getId() {
-		return id;
+	public void setId(String id) {
+		this.id_profil = id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public UserStatus getUserStatus() {
+	public String getUserStatus() {
 		return userStatus;
 	}
 
-	public void setUserStatus(UserStatus userStatus) {
+	public void setUserStatus(String userStatus) {
 		this.userStatus = userStatus;
 	}
 
@@ -62,7 +62,7 @@ public class Profil implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + ((id_profil == null) ? 0 : id_profil.hashCode());
 		result = prime * result + ((salarie == null) ? 0 : salarie.hashCode());
 		result = prime * result
 				+ ((userStatus == null) ? 0 : userStatus.hashCode());
@@ -78,20 +78,28 @@ public class Profil implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Profil other = (Profil) obj;
-		if (id != other.id)
+		if (id_profil == null) {
+			if (other.id_profil != null)
+				return false;
+		} else if (!id_profil.equals(other.id_profil))
 			return false;
 		if (salarie == null) {
 			if (other.salarie != null)
 				return false;
 		} else if (!salarie.equals(other.salarie))
 			return false;
-		if (userStatus != other.userStatus)
+		if (userStatus == null) {
+			if (other.userStatus != null)
+				return false;
+		} else if (!userStatus.equals(other.userStatus))
 			return false;
 		return true;
 	}
-	
+
 	@Override
-	public String toString(){
-		return salarie.getSalarie().getPrenom() + " " + salarie.getSalarie().getNom() + " statut : " + userStatus.name(); 
+	public String toString() {
+		return "Profil [id=" + id_profil + ", userStatus=" + userStatus + ", salarie="
+				+ salarie + "]";
 	}
+	
 }

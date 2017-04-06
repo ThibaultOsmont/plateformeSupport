@@ -1,57 +1,49 @@
 package fr.eni.nsy103.plateformeSupport.model;
 
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "CLIENTS")
-public class Client implements Serializable {
+public class Client {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id
-	@Column(name = "ID_CLIENT")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private String id_client;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "clientId",nullable = false,unique = true)
-	private Personne client;
-	
-	public Client(){
+	@OneToOne(mappedBy = "client")
+	@JoinColumn(name = "ID_CLIENT")
+	private Personne personne;
+
+	public String getId_client() {
+		return id_client;
 	}
 
-	public String getId() {
-		return id;
+	public void setId_client(String id_client) {
+		this.id_client = id_client;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public Personne getPersonne() {
+		return personne;
 	}
 
-	public Personne getClient() {
-		return client;
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
 
-	public void setClient(Personne client) {
-		this.client = client;
-	}	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((client == null) ? 0 : client.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((id_client == null) ? 0 : id_client.hashCode());
+		result = prime * result
+				+ ((personne == null) ? 0 : personne.hashCode());
 		return result;
 	}
 
@@ -64,21 +56,22 @@ public class Client implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
-		if (client == null) {
-			if (other.client != null)
+		if (id_client == null) {
+			if (other.id_client != null)
 				return false;
-		} else if (!client.equals(other.client))
+		} else if (!id_client.equals(other.id_client))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (personne == null) {
+			if (other.personne != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!personne.equals(other.personne))
 			return false;
 		return true;
 	}
 
 	@Override
-	public String toString(){
-		return client.getPrenom() + " " + client.getNom();
+	public String toString() {
+		return "Client [id_client=" + id_client + ", personne=" + personne
+				+ "]";
 	}
 }

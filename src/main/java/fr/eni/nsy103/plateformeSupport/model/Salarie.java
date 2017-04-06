@@ -4,54 +4,49 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import fr.eni.nsy103.plateformeSupport.enumerations.Jours;
 
 @Entity
 @Table(name = "SALARIES")
-public class Salarie implements Serializable{
+public class Salarie implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * UID
+	 */
+	private static final long serialVersionUID = -8136362879717650721L;
+
 	@Id
-	@Column(name = "ID_SALARIE")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private String id_salarie;
 	
-	@Column(name = "LOG_IN", nullable = false, unique = true,length = 30)
+	@Column(name = "LOG_IN")
 	private String login;
 	
-	@Column(name = "PWD", nullable = false,length = 15)
+	@Column(name = "PWD")
 	private String pwd;
 	
-	@Column(name = "PRESENCE", nullable = false)
-	private boolean presence;
+	@Column(name = "PRESENCE")
+	private Short presence;
 	
-	@Enumerated(EnumType.ORDINAL)
-	private Jours jour;
+	@Column(name = "JOUR")
+	private Short jour;
 	
-	@ManyToOne
-	@JoinColumn(name = "salarieId",nullable = false,unique = true)
-	private Personne salarie;
+	@OneToOne(mappedBy = "salarie")
+	@JoinColumn(name = "ID_SALARIE")
+	private Personne personne;
 	
-	public Salarie(){
-		
+	@OneToOne(mappedBy = "salarie")
+	@JoinColumn(name = "ID_SALARIE")
+	private Profil profil;
+
+	public String getId() {
+		return id_salarie;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String id) {
+		this.id_salarie = id;
 	}
 
 	public String getLogin() {
@@ -69,39 +64,33 @@ public class Salarie implements Serializable{
 	public void setPassword(String password) {
 		this.pwd = password;
 	}
-	
-	public Personne getSalarie() {
-		return salarie;
-	}
 
-	public void setSalarie(Personne salarie) {
-		this.salarie = salarie;
-	}
-
-	public boolean isPresence() {
+	public short getPresence() {
 		return presence;
 	}
 
-	public void setPresence(boolean presence) {
+	public void setPresence(short presence) {
 		this.presence = presence;
 	}
 
-	public Jours getJour() {
+	public short getJour() {
 		return jour;
 	}
 
-	public void setJour(Jours jour) {
+	public void setJour(short jour) {
 		this.jour = jour;
-	}	
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((jour == null) ? 0 : jour.hashCode());
-		result = prime * result + (presence ? 1231 : 1237);
-		result = prime * result + ((salarie == null) ? 0 : salarie.hashCode());
+		result = prime * result + ((id_salarie == null) ? 0 : id_salarie.hashCode());
+		result = prime * result + jour;
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		result = prime * result
+				+ ((pwd == null) ? 0 : pwd.hashCode());
+		result = prime * result + presence;
 		return result;
 	}
 
@@ -114,22 +103,31 @@ public class Salarie implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Salarie other = (Salarie) obj;
-		if (id != other.id)
+		if (id_salarie == null) {
+			if (other.id_salarie != null)
+				return false;
+		} else if (!id_salarie.equals(other.id_salarie))
 			return false;
 		if (jour != other.jour)
 			return false;
-		if (presence != other.presence)
-			return false;
-		if (salarie == null) {
-			if (other.salarie != null)
+		if (login == null) {
+			if (other.login != null)
 				return false;
-		} else if (!salarie.equals(other.salarie))
+		} else if (!login.equals(other.login))
+			return false;
+		if (pwd == null) {
+			if (other.pwd != null)
+				return false;
+		} else if (!pwd.equals(other.pwd))
+			return false;
+		if (presence != other.presence)
 			return false;
 		return true;
 	}
 
 	@Override
-	public String toString(){
-		return salarie.getPrenom() + " " + salarie.getNom();
+	public String toString() {
+		return "Salarie [id=" + id_salarie + ", login=" + login + ", password="
+				+ pwd + ", presence=" + presence + ", jour=" + jour + "]";
 	}
 }
