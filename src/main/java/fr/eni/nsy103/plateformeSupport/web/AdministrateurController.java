@@ -2,15 +2,14 @@ package fr.eni.nsy103.plateformeSupport.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.eni.nsy103.plateformeSupport.model.Client;
@@ -44,6 +43,21 @@ public class AdministrateurController {
 	@Autowired
 	private RendezVousRepository rRdv;
 	
+	/**
+	 * Page d'accueil de l'administrateur
+	 * 
+	 * @param m
+	 * 		Le modèle de la page HTML
+	 * 
+	 * @param session
+	 * 		La session du serveur
+	 * 
+	 * @param rAttributes
+	 * 		Pour ajouter et récupérer des atrributs passés pour la redirection.
+	 * 
+	 * @return
+	 * 		Le template HTML
+	 */
 	@GetMapping
 	public String adminAccueil(Model m, HttpSession session, RedirectAttributes rAttributes) {
 		if(null == session.getAttribute("salarieAuth")) {
@@ -66,6 +80,18 @@ public class AdministrateurController {
 		return "/adm";
 	}
 	
+	/**
+	 * Créér un nouveau client.
+	 * 
+	 * @param request
+	 * 		Les données du nouveau client
+	 * 
+	 * @param m
+	 * 		Le modèle de la page HTML
+	 * 
+	 * @return
+	 * 		Le template HTML
+	 */
 	@PostMapping(value = "/nouveauClient")
 	public String creerNouveauClient(HttpServletRequest request, Model m) {
 		/**
@@ -85,6 +111,39 @@ public class AdministrateurController {
 		System.out.println("id client " + pers.getId());
 		cli.setPersonne(pers);
 		rClient.save(cli);
+		
+		return "redirect:/adm";
+	}
+	
+	/**
+	 * Modifier les informations d'un client existant.
+	 * 
+	 * @param request
+	 * 		Les données mises à jour du client
+	 * 
+	 * @return
+	 * 		Le template HTML
+	 */
+	@PatchMapping(value = "/modifierClient")
+	private String modifierUtilisateur(HttpServletRequest request) {
+		/**
+		 * Récupération du client
+		 */
+		Client cli = rClient.findOne(Long.valueOf(request.getParameter("id-client")));
+		
+		/*
+		 * Modification des données
+		 */
+		Personne pers = cli.getPersonne();
+		pers.setNom(request.getParameter("modNomCli"));
+		pers.setPrenom(request.getParameter("modPrenomCli"));
+		pers.setMail(request.getParameter("modMailCli"));
+		pers.setTelephone(request.getParameter("modTelephoneCli"));
+		
+		/*
+		 * Sauvegarde en base
+		 */
+		rPersonne.save(pers);
 		
 		return "redirect:/adm";
 	}

@@ -69,21 +69,16 @@
 								<td th:text="${client.personne.telephone}"></td>
 								<td th:text="${client.personne.mail}"></td>
 								<td>
-									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modClient-modal" ><span class="glyphicon glyphicon-pencil"></span></button>
+									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modClient-modal" onclick="modifierClientAsAdmin($(this))">
+										<span class="glyphicon glyphicon-pencil"></span>
+										<p class="hidden" th:text="${client.id}"></p>
+									</button>
 								</td>
 								<td>
-									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delClient-modal" ><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
-							<tr th:if="${clientsAdmin !=null}" th:each="client, status: ${clientsAdmin}">
-								<td th:text="${client.personne.nom + ' ' + client.personne.prenom}"></td>
-								<td th:text="${client.personne.telephone}"></td>
-								<td th:text="${client.personne.mail}"></td>
-								<td>
-									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modClient-modal" ><span class="glyphicon glyphicon-pencil"></span></button>
-								</td>
-								<td>
-									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delClient-modal" ><span class="glyphicon glyphicon-trash"></span></button>
+									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delClient-modal" onclick="supprimerClientAsAdmin($(this))">
+										<span class="glyphicon glyphicon-trash"></span>
+										<p class="hidden" th:text="${client.id}"></p>
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -347,7 +342,7 @@
 					<div class="modal-body">
 						<div id="myTabContent" class="tab-content">
 							<div class="tab-pane fade active in">
-								<form id="formModifierClient" class="form-horizontal" method="POST" action="/adm/modifierClient">
+								<form id="formModifierClient" class="form-horizontal" method="PATCH" action="/adm/modifierClient">
 									<fieldset>
 									<!-- Parameters for adding a new client -->
 										<!-- Text -->
@@ -387,7 +382,7 @@
 											<div class="control-group">
 												<label class="control-label" for="confirmModClient"></label>
 												<div class="controls">
-													<button type="submit" id="confirmModClient" name="confirmModClient" class="btn btn-success btn-block">Enregistrer les modifications</button>
+													<button type="button" id="confirmModClient" name="confirmModClient" onclick="saveModClientAsAdmin()" class="btn btn-success btn-block">Enregistrer les modifications</button>
 												</div>
 											</div>
 										</center>

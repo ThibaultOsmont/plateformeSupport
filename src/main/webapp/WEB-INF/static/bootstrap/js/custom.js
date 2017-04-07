@@ -36,3 +36,29 @@ function checkPass() {
 		message.innerHTML = "Passwords Do Not Match!"
 	}
 }
+
+/**
+ * Sauvegarde l'id du client à modifier pour l'administrateur
+ * 
+ * @param {*} bouton 
+ */
+function modifierClientAsAdmin(bouton) {
+	sessionStorage.setItem("adminModClient", $(bouton).find("p").text());
+}
+
+/**
+ * Soumet le formulaire de création du nouveau client
+ */
+function saveModifClientAsAdmin() {
+	$("#formModifierClient").append("<input type='hidden' name'id-client' value='" + sessionStorage.getItem("adminModClient") + "'/>");
+	$("#formModifierClient").submit();
+}
+
+/**
+ * Sauvegarde l'id du client à supprimer pour l'administrateur
+ * 
+ * @param {*} bouton 
+ */
+function supprimerClientAsAdmin(bouton) {
+	sessionStorage.setItem("adminSupprClient", $(bouton).find("p").text())
+}
