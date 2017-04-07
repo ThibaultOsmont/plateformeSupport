@@ -37,6 +37,6 @@ function checkPass() {
 	}
 }
 
-function refresh() {
-	$('.table').load(window.location.href +  ' .table', console.log("OK"));
+function refresh(table) {
+	$(table).load(window.location.href +  ' ' + table, console.log("OK"));
 }
