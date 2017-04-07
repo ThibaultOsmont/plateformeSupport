@@ -71,13 +71,13 @@
 								<td>
 									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modClient-modal" onclick="modifierClientAsAdmin($(this))">
 										<span class="glyphicon glyphicon-pencil"></span>
-										<p class="hidden" th:text="${client.id}"></p>
+										<p class="hidden" th:text="${client.id_client}"></p>
 									</button>
 								</td>
 								<td>
 									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delClient-modal" onclick="supprimerClientAsAdmin($(this))">
 										<span class="glyphicon glyphicon-trash"></span>
-										<p class="hidden" th:text="${client.id}"></p>
+										<p class="hidden" th:text="${client.id_client}"></p>
 									</button>
 								</td>
 							</tr>
