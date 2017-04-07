@@ -37,14 +37,6 @@ public class Personne implements Serializable {
 	
 	@Column(name = "TELEPHONE", length = 10)
 	private String telephone;
-	
-	@OneToOne
-	@JoinColumn(name = "ID")
-	private Client client;
-	
-	@OneToOne
-	@JoinColumn(name = "ID")
-	private Salarie salarie;
 
 	public Integer getId() {
 		return id;

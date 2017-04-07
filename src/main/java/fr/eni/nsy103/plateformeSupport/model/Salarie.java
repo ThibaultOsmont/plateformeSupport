@@ -2,6 +2,7 @@ package fr.eni.nsy103.plateformeSupport.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,12 +39,12 @@ public class Salarie implements Serializable {
 	@Column(name = "JOUR")
 	private Short jour;
 
-	@OneToOne(mappedBy = "salarie")
-	@JoinColumn(name = "ID_SALARIE")
+	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "PERSONNE_ID")
 	private Personne personne;
 	
-	@OneToOne(mappedBy = "salarie")
-	@JoinColumn(name = "ID_SALARIE")
+	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "PROFIL_ID")
 	private Profil profil;
 
 	public Integer getId() {

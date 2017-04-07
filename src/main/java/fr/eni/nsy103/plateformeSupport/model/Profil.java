@@ -34,10 +34,6 @@ public class Profil implements Serializable {
 
 	@Column(name = "USERSTATUS")
 	private String userStatus;
-	
-	@OneToOne
-	@JoinColumn(name = "ID_PROFIL")
-	private Salarie salarie;
 
 	public Integer getId() {
 		return id_profil;
@@ -55,20 +51,12 @@ public class Profil implements Serializable {
 		this.userStatus = userStatus;
 	}
 
-	public Salarie getSalarie() {
-		return salarie;
-	}
-
-	public void setSalarie(Salarie salarie) {
-		this.salarie = salarie;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_profil == null) ? 0 : id_profil.hashCode());
-		result = prime * result + ((salarie == null) ? 0 : salarie.hashCode());
+		result = prime * result
+				+ ((id_profil == null) ? 0 : id_profil.hashCode());
 		result = prime * result
 				+ ((userStatus == null) ? 0 : userStatus.hashCode());
 		return result;
@@ -88,11 +76,6 @@ public class Profil implements Serializable {
 				return false;
 		} else if (!id_profil.equals(other.id_profil))
 			return false;
-		if (salarie == null) {
-			if (other.salarie != null)
-				return false;
-		} else if (!salarie.equals(other.salarie))
-			return false;
 		if (userStatus == null) {
 			if (other.userStatus != null)
 				return false;
@@ -103,8 +86,7 @@ public class Profil implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Profil [id=" + id_profil + ", userStatus=" + userStatus + ", salarie="
-				+ salarie + "]";
-	}
-	
+		return "Profil [id_profil=" + id_profil + ", userStatus=" + userStatus
+				+ "]";
+	}	
 }

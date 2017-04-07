@@ -1,5 +1,6 @@
 package fr.eni.nsy103.plateformeSupport.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +19,9 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_CLIENTS")
 	private Integer id_client;
 	
-	@OneToOne(mappedBy = "client")
-	@JoinColumn(name = "ID_CLIENT")
-	private Personne client;
-	
+	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "id",unique = true,nullable = false)
+	private Personne client;	
 
 	public Integer getId_client() {
 		return id_client;

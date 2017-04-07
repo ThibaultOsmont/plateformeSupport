@@ -88,7 +88,7 @@ public class SupportController {
 		 */
 		if(null != sal) {
 			Profil userProfile = rProfil.findById(sal.getId());
-			session.setAttribute("salarieAuth", sal);
+			session.setAttribute(Constantes.SALARIE_AUTHENTIFIE, sal);
 			session.setAttribute("profil", userProfile.getUserStatus());
 			
 			/**
