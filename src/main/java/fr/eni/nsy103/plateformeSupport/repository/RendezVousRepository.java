@@ -9,6 +9,6 @@ import fr.eni.nsy103.plateformeSupport.model.RendezVous;
 
 @Repository
 public interface RendezVousRepository  extends JpaRepository<RendezVous,Long>{
-	@Query("Select rdv From RendezVous rdv where rdv.rdvPK.salarieId = :salarieid and rdv.rdvPK.clientId = :clientid ")
-	public RendezVousRepository FindRendezVousRepositoryByIdsalarie(@Param("salarieid") String salarieId,@Param("clientid") String c);
+	@Query("Select rdv From RendezVous rdv where rdv.rdvPK.salarie.id = :salarieid and rdv.rdvPK.client.id = :clientid ")
+	public RendezVousRepository FindRendezVousRepositoryByIdsalarie(@Param("salarieid") int salarieId,@Param("clientid") int c);
 }
