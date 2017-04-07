@@ -57,6 +57,7 @@
 								<th>Téléphone</th>
 								<th>Email</th>
 								<th>Modifier</th>
+								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -70,6 +71,9 @@
 								<td>
 									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modClient-modal" ><span class="glyphicon glyphicon-pencil"></span></button>
 								</td>
+								<td>
+									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delClient-modal" ><span class="glyphicon glyphicon-trash"></span></button>
+								</td>
 							</tr>
 							<tr th:if="${clientsAdmin !=null}" th:each="client, status: ${clientsAdmin}">
 								<td th:text="${client.personne.nom + ' ' + client.personne.prenom}"></td>
@@ -77,6 +81,9 @@
 								<td th:text="${client.personne.mail}"></td>
 								<td>
 									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modClient-modal" ><span class="glyphicon glyphicon-pencil"></span></button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delClient-modal" ><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
 						</tbody>
@@ -97,6 +104,7 @@
 								<th>Login</th>
 								<th>Jour de travail</th>
 								<th>Modifier</th>
+								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -111,6 +119,9 @@
 								<td th:text="${conseiller.personne.jourDeTravail}"></td>
 								<td>
 									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modConseiller-modal"><span class="glyphicon glyphicon-pencil"></span></button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delConseiller-modal"><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
 						</tbody>
@@ -389,6 +400,30 @@
 						<center>
 							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
 						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="delClient-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="my TabContent" class="tab-content">
+							<div class="tab-pane fade active in">
+								<form id="formDelClient" class="form-horizontal" method="POST" action="/adm/supprimerClient">
+									<center><div class="controls">Êtes-vous sûr de vouloir supprimer ce client ?</div></center>
+									<hr>
+									<div class="btn-group-justified">
+										<div class="btn-group">
+											<button type="submit" class="btn btn-danger">YES</button>
+										</div>
+										<div class="btn-group">
+											 <button class="btn btn-warning" data-dismiss="modal">NO</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
