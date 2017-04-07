@@ -13,30 +13,30 @@ import fr.eni.nsy103.plateformeSupport.model.Salarie;
 public class RendezVousPK implements Serializable{
 	private static final long serialVersionUID = 1L;	
 	
-	private int salarieId;
-	private int clientId;
+	private String salarieId;
+	private String clientId;
 	
 	public RendezVousPK(){		
 	}
 	
-	public RendezVousPK(int salarieId,int clientId){
+	public RendezVousPK(String salarieId,String clientId){
 		this.salarieId = salarieId;
 		this.clientId = clientId;
 	}
 
-	public int getSalarieId() {
+	public String getSalarieId() {
 		return salarieId;
 	}
 
-	public void setSalarieId(int salarieId) {
+	public void setSalarieId(String salarieId) {
 		this.salarieId = salarieId;
 	}
 
-	public int getClientId() {
+	public String getClientId() {
 		return clientId;
 	}
 
-	public void setClientId(int clientId) {
+	public void setClientId(String clientId) {
 		this.clientId = clientId;
 	}
 
@@ -44,8 +44,10 @@ public class RendezVousPK implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + clientId;
-		result = prime * result + salarieId;
+		result = prime * result
+				+ ((clientId == null) ? 0 : clientId.hashCode());
+		result = prime * result
+				+ ((salarieId == null) ? 0 : salarieId.hashCode());
 		return result;
 	}
 
@@ -58,10 +60,18 @@ public class RendezVousPK implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		RendezVousPK other = (RendezVousPK) obj;
-		if (clientId != other.clientId)
+		if (clientId == null) {
+			if (other.clientId != null)
+				return false;
+		} else if (!clientId.equals(other.clientId))
 			return false;
-		if (salarieId != other.salarieId)
+		if (salarieId == null) {
+			if (other.salarieId != null)
+				return false;
+		} else if (!salarieId.equals(other.salarieId))
 			return false;
 		return true;
-	}	
+	}
+
+
 }

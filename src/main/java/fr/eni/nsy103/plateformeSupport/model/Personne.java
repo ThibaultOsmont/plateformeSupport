@@ -1,54 +1,45 @@
 package fr.eni.nsy103.plateformeSupport.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name = "PERSONNES")
 public class Personne implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * UID
+	 */
+	private static final long serialVersionUID = 4165719391691271529L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
-
+	
 	@Column(name = "NOM", length = 40, nullable = false)
 	private String nom;
 	
-	@Column(name="PRENOM", length = 40, nullable = false)
+	@Column(name = "PRENOM", length = 40, nullable = false)
 	private String prenom;
 	
-	@Column(name="TELEPHONE", length = 10, nullable = false)
-	private String telephone;
-	
-	@Column(length = 60)
-	@Email
+	@Column(name = "MAIL", length = 40, nullable = false)
 	private String mail;
 	
-	@OneToMany(mappedBy="salarie")
-	private List<Salarie> salaries;
+	@Column(name = "TELEPHONE", length = 10)
+	private String telephone;
 	
-	@OneToMany(mappedBy="client")
-	private List<Client> clients;
+	@OneToOne
+	@JoinColumn(name = "ID")
+	private Client client;
 	
-	public Personne(){
-	}
-	
-	public Personne(String prenom,String nom){
-		this.nom = nom;
-		this.prenom = prenom;
-	}
+	@OneToOne
+	@JoinColumn(name = "ID")
+	private Salarie salarie;
 
 	public String getId() {
 		return id;
@@ -72,14 +63,6 @@ public class Personne implements Serializable {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
-	}	
-	
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
 	}
 
 	public String getMail() {
@@ -88,7 +71,15 @@ public class Personne implements Serializable {
 
 	public void setMail(String mail) {
 		this.mail = mail;
-	}	
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
 
 	@Override
 	public int hashCode() {
@@ -112,7 +103,10 @@ public class Personne implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Personne other = (Personne) obj;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (mail == null) {
 			if (other.mail != null)
@@ -138,7 +132,8 @@ public class Personne implements Serializable {
 	}
 
 	@Override
-	public String toString(){
-		return prenom + " " + nom;		
+	public String toString() {
+		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom
+				+ ", mail=" + mail + ", telephone=" + telephone + "]";
 	}
 }
