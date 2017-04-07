@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +20,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>                        
 					</button>
-					<a class="navbar-brand" href="#"><img th:src="@{/static/bootstrap/img/logo.png}" src="../static/bootstrap/img/logo.png" style="width:50px;height: auto; margin-top:-15px;" /></a>
+					<img th:src="@{/static/bootstrap/img/logo.png}" src="../static/bootstrap/img/logo.png" class="navbar-brand" style="width:50px;height: auto;" />
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
@@ -31,60 +30,6 @@
 						<li>
 							<a href="#" data-toggle="modal" data-target="#login-modal">
 								<span class="glyphicon glyphicon-log-in"></span> Connexion</a>
-							<div class="modal fade bs-modal-sm" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-sm">
-									<div class="modal-content"><br>
-										<div class="bs-example bs-example-tabs">
-											<center>
-												<ul id="myTab" class="nav nav-tabs">
-													<li class="active"><a href="#signin" data-toggle="tab">Connexion</a></li>
-												</ul>
-											</center>
-										</div>
-										<div class="modal-body">
-											<div id="myTabContent" class="tab-content">
-												<div class="tab-pane fade active in" id="signin">
-													<form id="connection" class="form-horizontal" action="/login" method="POST">
-														<fieldset>
-														<!-- Sign In Form -->
-															<!-- Text input-->
-															<div class="control-group">
-																<label class="control-label" for="log_in">Login :</label>
-																<div class="controls">
-																	<input id="log_in" name="log_in" type="text" class="form-control input-medium" required="">
-																</div>
-															</div>
-
-															<!-- Password input-->
-															<div class="control-group">
-																<label class="control-label" for="pwd1">Mot de passe :</label>
-																<div class="controls">
-																	<input id="pwd1" name="pwd1" type="password" class="form-control input-medium" required="">
-																</div>
-															</div>
-
-															<!-- Button -->
-															<center>
-																<div class="control-group">
-																	<label class="control-label" for="signin"></label>
-																	<div class="controls">
-																		<button type="submit" id="signin" name="signin" class="btn btn-success btn-block">Se connecter</button>
-																	</div>
-																</div>
-															</center>
-														</fieldset>
-													</form>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<center>
-												<button type="button" class="btn btn-warning btn-block" data-dismiss="modal">Fermer</button>
-											</center>
-										</div>
-									</div>
-								</div>
-							</div>
 						</li>
 					</ul>
 				</div>
@@ -111,7 +56,57 @@
 		</div>
 		
 		<footer class="container-fluid text-center">
-			<p></p>
+			<hr>
 		</footer>
+		
+		<!-- Modules -->
+		
+		<div class="modal fade bs-modal-sm" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="signin">
+								<form id="connection" class="form-horizontal" action="/login" method="POST">
+									<fieldset>
+									<!-- Sign In Form -->
+										<!-- Text input-->
+										<div class="control-group">
+											<label class="control-label" for="log_in">Login :</label>
+											<div class="controls">
+												<input id="log_in" name="log_in" type="text" class="form-control input-medium" required="">
+											</div>
+										</div>
+
+										<!-- Password input-->
+										<div class="control-group">
+											<label class="control-label" for="pwd1">Mot de passe :</label>
+											<div class="controls">
+												<input id="pwd1" name="pwd1" type="password" class="form-control input-medium" required="">
+											</div>
+										</div>
+
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="signin"></label>
+												<div class="controls">
+													<button type="submit" id="signin" name="signin" class="btn btn-success btn-block">Se connecter</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning btn-block" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

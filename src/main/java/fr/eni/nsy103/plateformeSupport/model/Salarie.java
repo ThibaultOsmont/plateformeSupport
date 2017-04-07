@@ -23,8 +23,8 @@ public class Salarie implements Serializable {
 	private static final long serialVersionUID = -8136362879717650721L;
 
 	@Id
-	@SequenceGenerator(name = "SEQ_SALARIES", sequenceName = "SEQ_SALARIES")
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_SALARIES")
+//	@SequenceGenerator(name = "SEQ_SALARIES", sequenceName = "SEQ_SALARIES")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id_salarie;
 	
 	@Column(name = "LOG_IN")

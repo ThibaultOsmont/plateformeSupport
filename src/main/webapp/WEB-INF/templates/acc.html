@@ -35,80 +35,6 @@
 						<li>
 							<a href="#" data-toggle="modal" data-target="#parameters-modal">
 								<span class="glyphicon glyphicon-option-vertical"></span> Paramètres</a>
-							<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-sm">
-									<div class="modal-content"><br>
-										<div class="bs-example bs-example-tabs">
-											<ul id="myTab" class="nav nav-tabs">
-												<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
-												<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
-											</ul>
-										</div>
-										<div class="modal-body">
-											<div id="myTabContent" class="tab-content">
-												<div class="tab-pane fade active in" id="parameters">
-													<form class="form-horizontal">
-														<fieldset>
-														<!-- Parameters for the current user -->
-															<!-- Text -->
-															<div class="control-group">
-																<label class="control-label" for="Nom">Nom :</label>
-																<div class="controls">
-																	<span class="label label-info">Nom</span>
-																</div>
-															</div>
-
-															<!-- Password -->
-															<div class="control-group">
-																<label class="control-label" for="prenom">Prénom :</label>
-																<div class="controls">
-																	<span class="label label-info">Prénom</span>
-																</div>
-															</div>
-															
-															<!-- Mail -->
-															<div class="control-group">
-																<label class="control-label" for="email">Mail :</label>
-																<div class="controls">
-																	<span class="label label-info">Mail</span>
-																</div>
-															</div>
-															
-															<!-- Phone -->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Téléphone :</label>
-																<div class="controls">
-																	<span class="label label-info">Téléphone</span>
-																</div>
-															</div>
-															
-															<!-- Profil -->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Profil :</label>
-																<div class="controls">
-																	<span class="label label-info">Profil</span>
-																</div>
-															</div>
-														</fieldset>
-													</form>
-												</div>
-												<div class="tab-pane fade" id="logout">
-													<div class="form-horizontal">
-														<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
-														<hr>
-														<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
-													</div><!-- A CHANGER -->
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<center>
-												<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-											</center>
-										</div>
-									</div>
-								</div>
-							</div>
 						</li>
 					</ul>
 				</div>
@@ -121,74 +47,6 @@
 					<h1>Clients</h1>
 					<hr>
 					<button class="btn btn-success" data-toggle="modal" data-target="#addClient-modal">Ajouter un client</button>
-					<div class="modal fade bs-modal-sm" id="addClient-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content"><br>
-								<div class="bs-example bs-example-tabs">
-									<ul id="myTab" class="nav nav-tabs">
-										<li class="active"><a href="#addClient" data-toggle="tab">Ajout d'un client</a></li>
-									</ul>
-								</div>
-								<div class="modal-body">
-									<div id="myTabContent" class="tab-content">
-										<div class="tab-pane fade active in" id="addClient">
-											<form class="form-horizontal">
-												<fieldset>
-												<!-- Parameters for adding a new client -->
-													<!-- Text -->
-													<div class="control-group">
-														<label class="control-label" for="nomCli">Nom :</label>
-														<div class="controls">
-															<input id="nomCli" name="nomCli" type="text" class="form-control input-large" maxlength="40" required="">
-														</div>
-													</div>
-
-													<!-- Password -->
-													<div class="control-group">
-														<label class="control-label" for="prenomCli">Prénom :</label>
-														<div class="controls">
-															<input id="prenomCli" name="prenomCli" type="text" class="form-control input-large" maxlength="40" required="">
-														</div>
-													</div>
-													
-													<!-- Mail -->
-													<div class="control-group">
-														<label class="control-label" for="mailCli">Mail :</label>
-														<div class="controls">
-															<input id="mailCli" name="mailCli" type="email" maxlength="60" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Phone -->
-													<div class="control-group">
-														<label class="control-label" for="telephoneCli">Téléphone :</label>
-														<div class="controls">
-															<input id="telephoneCli" name="telephoneCli" type="text" class="form-control input-large" maxlength="10" required="">
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmAddClient"></label>
-															<div class="controls">
-																<button type="submit" id="confirmAddClient" name="confirmAddClient" class="btn btn-success btn-block">Enregistrer le nouveau client</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<center>
-										<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-									</center>
-								</div>
-							</div>
-						</div>
-					</div>
 					<hr>
 					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
@@ -232,7 +90,6 @@
 								<th>Login</th>
 								<th>Jour de travail</th>
 								<th>Modifier</th>
-								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -243,8 +100,8 @@
 								<td th:text="${conseiller.personne.nom + ' ' + conseiller.personne.prenom}"></td>
 								<td th:text="${conseiller.personne.telephone}"></td>
 								<td th:text="${conseiller.personne.mail}"></td>
-								<td th:text="${conseiller.personne.login}"></td>
-								<td th:text="${conseiller.personne.jourDeTravail}"></td>
+								<td th:text="${conseiller.login}"></td>
+								<td th:text="${conseiller.jour}"></td>
 								<td>
 									<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
 								</td>
@@ -259,133 +116,6 @@
 					<h1>Rendez-vous</h1>
 					<hr>
 					<button class="btn btn-success" data-toggle="modal" data-target="#addRDV-modal">Ajouter un rendez-vous</button>
-					<div class="modal fade bs-modal-sm" id="addRDV-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content"><br>
-								<div class="bs-example bs-example-tabs">
-									<ul id="myTab" class="nav nav-tabs">
-										<li class="active"><a href="#addRDVDate" data-toggle="tab">Ajout d'un rendez-vous selon la date</a></li>
-										<li><a href="#addRDVCns" data-toggle="tab">Ajout d'un rendez-vous selon la conseiller</a></li>
-									</ul>
-								</div>
-								<div class="modal-body">
-									<div id="myTabContent" class="tab-content">
-										<div class="tab-pane fade active in" id="addRDVDate">
-											<form class="form-horizontal">
-												<fieldset>
-												<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
-													<!-- Date -->
-													<div class="control-group">
-														<label class="control-label" for="dateRDV1">Date :</label>
-														<div class="controls">
-															<script>
-																$("document").ready(function() {
-																	$("#dateRDV1").datepicker();
-																}) ;
-															</script>
-															<input id="dateRDV1" name="dateRDV1" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="Conseiller1">Conseiller :</label>
-														<div class="controls">
-															<select id="Conseiller1" name="Conseiller1" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="ClientRDV1">Client :</label>
-														<div class="controls">
-															<select id="ClientRDV1" name="ClientRDV1" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmRDV1"></label>
-															<div class="controls">
-																<button type="submit" id="confirmRDV1" name="confirmRDV1" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-										<div class="tab-pane fade" id="addRDVCns">
-											<form class="form-horizontal">
-												<fieldset>
-												<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="Conseiller2">Conseiller :</label>
-														<div class="controls">
-															<select id="Conseiller2" name="Conseiller2" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Date -->
-													<div class="control-group">
-														<label class="control-label" for="dateRDV2">Date :</label>
-														<div class="controls">
-															<script>
-																$(function() {
-																	$("#dateRDV2").datepicker();
-																}) ;
-															</script>
-															<input id="dateRDV2" name="dateRDV2" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="ClientRDV2">Client :</label>
-														<div class="controls">
-															<select id="ClientRDV2" name="ClientRDV2" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmAddRDV2"></label>
-															<div class="controls">
-																<button type="submit" id="confirmAddRDV2" name="confirmAddRDV2" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<center>
-										<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-									</center>
-								</div>
-							</div>
-						</div>
-					</div>
 					<hr>
 					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
@@ -423,7 +153,274 @@
 		</div>
 		
 		<footer class="container-fluid text-center">
-			<p></p>
+			<hr>
 		</footer>
+		
+		<!-- Modules -->
+		
+		<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="bs-example bs-example-tabs">
+						<ul id="myTab" class="nav nav-tabs text-center">
+							<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
+							<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="parameters">
+								<form class="form-horizontal">
+									<fieldset>
+									<!-- Parameters for the current user -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="Nom">Nom :</label>
+											<div class="controls">
+												<span class="label label-info">Nom</span>
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="prenom">Prénom :</label>
+											<div class="controls">
+												<span class="label label-info">Prénom</span>
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="email">Mail :</label>
+											<div class="controls">
+												<span class="label label-info">Mail</span>
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="telephone">Téléphone :</label>
+											<div class="controls">
+												<span class="label label-info">Téléphone</span>
+											</div>
+										</div>
+										
+										<!-- Profil -->
+										<div class="control-group">
+											<label class="control-label" for="telephone">Profil :</label>
+											<div class="controls">
+												<span class="label label-info">Agent d'accueil</span>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="logout">
+								<div class="form-horizontal">
+									<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
+									<hr>
+									<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
+								</div><!-- A CHANGER -->
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="addClient-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="addClient">
+								<form class="form-horizontal">
+									<fieldset>
+									<!-- Parameters for adding a new client -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="nomCli">Nom :</label>
+											<div class="controls">
+												<input id="nomCli" name="nomCli" type="text" class="form-control input-large" maxlength="40" required="">
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="prenomCli">Prénom :</label>
+											<div class="controls">
+												<input id="prenomCli" name="prenomCli" type="text" class="form-control input-large" maxlength="40" required="">
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="mailCli">Mail :</label>
+											<div class="controls">
+												<input id="mailCli" name="mailCli" type="email" maxlength="60" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="telephoneCli">Téléphone :</label>
+											<div class="controls">
+												<input id="telephoneCli" name="telephoneCli" type="text" class="form-control input-large" maxlength="10" required="">
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmAddClient"></label>
+												<div class="controls">
+													<button type="submit" id="confirmAddClient" name="confirmAddClient" class="btn btn-success btn-block">Enregistrer le nouveau client</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="addRDV-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="bs-example bs-example-tabs">
+						<ul id="myTab" class="nav nav-tabs text-center">
+							<li class="active"><a href="#addRDVDate" data-toggle="tab">Selon la date</a></li>
+							<li><a href="#addRDVCns" data-toggle="tab">Selon le conseiller</a></li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="addRDVDate">
+								<form class="form-horizontal">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
+										<!-- Date -->
+										<div class="control-group">
+											<label class="control-label" for="dateRDV1">Date :</label>
+											<div class="controls">
+												<script>
+													$("document").ready(function() {
+														$("#dateRDV1").datepicker();
+													}) ;
+												</script>
+												<input id="dateRDV1" name="dateRDV1" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="Conseiller1">Conseiller :</label>
+											<div class="controls">
+												<select id="Conseiller1" name="Conseiller1" class="form-control input-large" required="">
+<!--																<option></option>
+													<option></option>
+													<option></option>
+-->															</select>
+											</div>
+										</div>
+										
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="ClientRDV1">Client :</label>
+											<div class="controls">
+												<select id="ClientRDV1" name="ClientRDV1" class="form-control input-large" required="">
+<!--																<option></option>
+													<option></option>
+													<option></option>
+-->															</select>
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmRDV1"></label>
+												<div class="controls">
+													<button type="submit" id="confirmRDV1" name="confirmRDV1" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="addRDVCns">
+								<form class="form-horizontal">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="Conseiller2">Conseiller :</label>
+											<div class="controls">
+												<select id="Conseiller2" name="Conseiller2" class="form-control input-large" required="">
+<!--																<option></option>
+													<option></option>
+													<option></option>
+-->															</select>
+											</div>
+										</div>
+										
+										<!-- Date -->
+										<div class="control-group">
+											<label class="control-label" for="dateRDV2">Date :</label>
+											<div class="controls">
+												<script>
+													$(function() {
+														$("#dateRDV2").datepicker();
+													}) ;
+												</script>
+												<input id="dateRDV2" name="dateRDV2" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="ClientRDV2">Client :</label>
+											<div class="controls">
+												<select id="ClientRDV2" name="ClientRDV2" class="form-control input-large" required="">
+<!--																<option></option>
+													<option></option>
+													<option></option>
+-->															</select>
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmAddRDV2"></label>
+												<div class="controls">
+													<button type="submit" id="confirmAddRDV2" name="confirmAddRDV2" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
