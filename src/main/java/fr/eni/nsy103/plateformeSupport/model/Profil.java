@@ -28,8 +28,8 @@ public class Profil implements Serializable {
 	private static final long serialVersionUID = 9008611685057435478L;
 
 	@Id
-	@SequenceGenerator(name = "SEQ_PROFILS", sequenceName = "SEQ_PROFILS")
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_PROFILS")
+//	@SequenceGenerator(name = "SEQ_PROFILS", sequenceName = "SEQ_PROFILS")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id_profil;
 
 	@Column(name = "USERSTATUS")

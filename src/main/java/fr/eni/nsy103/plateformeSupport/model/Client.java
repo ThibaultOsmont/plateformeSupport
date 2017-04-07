@@ -15,10 +15,10 @@ import javax.persistence.Table;
 public class Client {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id_client;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "personneId",unique = true,nullable = false)
 	private Personne client;	
 

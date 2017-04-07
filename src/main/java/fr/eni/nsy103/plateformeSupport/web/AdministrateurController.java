@@ -88,4 +88,36 @@ public class AdministrateurController {
 		
 		return "redirect:/adm";
 	}
+	
+//	@PostMapping(value = "/nouveauAccueil")
+//	public String creerNouvelAccueil(HttpServletRequest request,Model m){
+//		Personne p = new Personne();
+//		Salarie s = new Salarie();
+//		
+//		p.setNom(request.getParameter("nomAcc"));
+//		p.setPrenom(request.getParameter("prenomAcc"));
+//		p.setMail(request.getParameter("mailAcc"));
+//		p.setTelephone(request.getParameter("telephoneAcc"));
+//		
+//		rPersonne.save(p);
+//		
+//		s = generateLoginPwd(p, s);
+//		s.setJour(Short.parseShort(request.getParameter("jourAcc")));
+//		
+//		rSalarie.save(s);
+//		
+//		return null;
+//	}
+//	
+//	public Salarie generateLoginPwd(Personne p,Salarie s){
+//		String pwd = "1234";
+//		String login = null;
+//		if(p.getNom().length() > 6)
+//			login = p.getPrenom().substring(0,1) + p.getNom().substring(0,6);
+//		else
+//			login = p.getPrenom().substring(0,1) + p.getNom();
+//		s.setLogin(login);
+//		s.setPassword(pwd);			
+//		return s;
+//	}
 }
