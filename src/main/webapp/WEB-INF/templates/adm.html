@@ -36,80 +36,6 @@
 						<li>
 							<a href="#" data-toggle="modal" data-target="#parameters-modal">
 								<span class="glyphicon glyphicon-option-vertical"></span> Paramètres</a>
-							<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-sm">
-									<div class="modal-content"><br>
-										<div class="bs-example bs-example-tabs">
-											<ul id="myTab" class="nav nav-tabs">
-												<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
-												<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
-											</ul>
-										</div>
-										<div class="modal-body">
-											<div id="myTabContent" class="tab-content">
-												<div class="tab-pane fade active in" id="parameters">
-													<form class="form-horizontal">
-														<fieldset>
-														<!-- Parameters for the current user -->
-															<!-- Text -->
-															<div class="control-group">
-																<label class="control-label" for="Nom">Nom :</label>
-																<div class="controls">
-																	<span class="label label-info" th:text="${salarie.nom}">Nom</span>
-																</div>
-															</div>
-
-															<!-- Password -->
-															<div class="control-group">
-																<label class="control-label" for="prenom">Prénom :</label>
-																<div class="controls">
-																	<span class="label label-info" th:text="${salarie.prenom}">Prénom</span>
-																</div>
-															</div>
-															
-															<!-- Mail -->
-															<div class="control-group">
-																<label class="control-label" for="email">Mail :</label>
-																<div class="controls">
-																	<span class="label label-info" th:text="${salarie.mail}">Mail</span>
-																</div>
-															</div>
-															
-															<!-- Phone -->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Téléphone :</label>
-																<div class="controls">
-																	<span class="label label-info" th:text="${salarie.telephone}">Téléphone</span>
-																</div>
-															</div>
-															
-															<!-- Profil -->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Profil :</label>
-																<div class="controls">
-																	<span class="label label-info">Administrateur</span>
-																</div>
-															</div>
-														</fieldset>
-													</form>
-												</div>
-												<div class="tab-pane fade" id="logout">
-													<div class="form-horizontal">
-														<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
-														<hr>
-														<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
-													</div><!-- A CHANGER -->
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<center>
-												<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-											</center>
-										</div>
-									</div>
-								</div>
-							</div>
 						</li>
 					</ul>
 				</div>
@@ -122,69 +48,6 @@
 					<h1>Clients</h1>
 					<hr>
 					<button class="btn btn-success" data-toggle="modal" data-target="#addClient-modal">Ajouter un client</button>
-					<div class="modal fade bs-modal-sm" id="addClient-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content"><br>
-								<div class="modal-body">
-									<div id="myTabContent" class="tab-content">
-										<div class="tab-pane fade active in">
-											<form id="formCreerClient" class="form-horizontal" method="POST" action="/adm/nouveauClient">
-												<fieldset>
-												<!-- Parameters for adding a new client -->
-													<!-- Text -->
-													<div class="control-group">
-														<label class="control-label" for="nomCli">Nom :</label>
-														<div class="controls">
-															<input id="nomCli" name="nomCli" type="text" maxlength="40" class="form-control input-large" required="">
-														</div>
-													</div>
-
-													<!-- Password -->
-													<div class="control-group">
-														<label class="control-label" for="prenomCli">Prénom :</label>
-														<div class="controls">
-															<input id="prenomCli" name="prenomCli" type="text" maxlength="40" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Mail -->
-													<div class="control-group">
-														<label class="control-label" for="mailCli">Mail :</label>
-														<div class="controls">
-															<input id="mailCli" name="mailCli" type="email" maxlength="60" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Phone -->
-													<div class="control-group">
-														<label class="control-label" for="telephoneCli">Téléphone :</label>
-														<div class="controls">
-															<input id="telephoneCli" name="telephoneCli" maxlength="10" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmAddClient"></label>
-															<div class="controls">
-																<button type="submit" id="confirmAddClient" name="confirmAddClient" class="btn btn-success btn-block">Enregistrer le nouveau client</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<center>
-										<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-									</center>
-								</div>
-							</div>
-						</div>
-					</div>
 					<hr>
 					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
@@ -194,7 +57,6 @@
 								<th>Téléphone</th>
 								<th>Email</th>
 								<th>Modifier</th>
-								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -206,10 +68,7 @@
 								<td th:text="${client.personne.telephone}"></td>
 								<td th:text="${client.personne.mail}"></td>
 								<td>
-									<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
-								</td>
-								<td>
-									<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modClient-modal"><span class="glyphicon glyphicon-pencil"></span></button>
 								</td>
 							</tr>
 						</tbody>
@@ -219,93 +78,6 @@
 					<h1>Conseillers</h1>
 					<hr>
 					<button class="btn btn-success" data-toggle="modal" data-target="#addConseiller-modal">Ajouter un conseiller</button>
-					<div class="modal fade bs-modal-sm" id="addConseiller-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content"><br>
-								<div class="modal-body">
-									<div id="myTabContent" class="tab-content">
-										<div class="tab-pane fade active in">
-											<form class="form-horizontal">
-												<fieldset>
-												<!-- Paramètres pour ajouter un nouveau conseiller -->
-													<!-- Text -->
-													<div class="control-group">
-														<label class="control-label" for="nomCns">Nom :</label>
-														<div class="controls">
-															<input id="nomCns" name="nomCns" type="text" maxlength="40" class="form-control input-large" required="">
-														</div>
-													</div>
-
-													<!-- Password -->
-													<div class="control-group">
-														<label class="control-label" for="prenomCns">Prénom :</label>
-														<div class="controls">
-															<input id="prenomCns" name="prenomCns" type="text" maxlength="40" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Mail -->
-													<div class="control-group">
-														<label class="control-label" for="mailCns">Mail :</label>
-														<div class="controls">
-															<input id="mailCns" name="mailCns" type="email" maxlength="60" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Phone -->
-													<div class="control-group">
-														<label class="control-label" for="telephoneCns">Téléphone :</label>
-														<div class="controls">
-															<input id="telephoneCns" name="telephoneCns" type="text" class="form-control input-large" max-length="10" required="">
-														</div>
-													</div>
-													
-													<!-- Jour -->
-													<div class="control-group">
-														<label class="control-label" for="jourCns">Jour de travail :</label>
-														<div class="controls">
-															<input id="jourCns" name="jourCns" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Log_in -->
-													<div class="control-group">
-														<label class="control-label" for="log_inCns">Login :</label>
-														<div class="controls">
-															<input id="log_inCns" name="log_inCns" type="text" maxlength="30" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- pwd -->
-													<div class="control-group">
-														<label class="control-label" for="pwdCns">Mot de passe :</label>
-														<div class="controls">
-															<input id="pwdCns" name="pwdCns" type="text" class="form-control input-large" minlength="8" maxlength="15" required="">
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmAddConseiller"></label>
-															<div class="controls">
-																<button type="submit" id="confirmAddConseiller" name="confirmAddConseiller" class="btn btn-success btn-block">Enregistrer le nouveau conseiller</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<center>
-										<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-									</center>
-								</div>
-							</div>
-						</div>
-					</div>
 					<hr>
 					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
@@ -317,7 +89,6 @@
 								<th>Login</th>
 								<th>Jour de travail</th>
 								<th>Modifier</th>
-								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -331,10 +102,7 @@
 								<td th:text="${conseiller.personne.login}"></td>
 								<td th:text="${conseiller.personne.jourDeTravail}"></td>
 								<td>
-									<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
-								</td>
-								<td>
-									<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modConseiller-modal"><span class="glyphicon glyphicon-pencil"></span></button>
 								</td>
 							</tr>
 						</tbody>
@@ -344,93 +112,6 @@
 					<h1>Centre d'accueil</h1>
 					<hr>
 					<button class="btn btn-success" data-toggle="modal" data-target="#addAccueil-modal">Ajouter un réceptionniste</button>
-					<div class="modal fade bs-modal-sm" id="addAccueil-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content"><br>
-								<div class="modal-body">
-									<div id="myTabContent" class="tab-content">
-										<div class="tab-pane fade active in">
-											<form class="form-horizontal">
-												<fieldset>
-												<!-- Paramètres pour ajouter un nouveau réceptionniste -->
-													<!-- Text -->
-													<div class="control-group">
-														<label class="control-label" for="nomAcc">Nom :</label>
-														<div class="controls">
-															<input id="nomAcc" name="nomAcc" type="text" maxlength="40" class="form-control input-large" required="">
-														</div>
-													</div>
-
-													<!-- Password -->
-													<div class="control-group">
-														<label class="control-label" for="prenomAcc">Prénom :</label>
-														<div class="controls">
-															<input id="prenomAcc" name="prenomAcc" type="text" maxlength="40" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Mail -->
-													<div class="control-group">
-														<label class="control-label" for="mailAcc">Mail :</label>
-														<div class="controls">
-															<input id="mailAcc" name="mailAcc" type="email" maxlength="60" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Phone -->
-													<div class="control-group">
-														<label class="control-label" for="telephoneAcc">Téléphone :</label>
-														<div class="controls">
-															<input id="telephoneAcc" name="telephoneAcc" type="text" class="form-control input-large" maxlength="10" required="">
-														</div>
-													</div>
-													
-													<!-- Jour -->
-													<div class="control-group">
-														<label class="control-label" for="jourAcc">Jour de travail :</label>
-														<div class="controls">
-															<input id="jourAcc" name="jourAcc" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- Log_in -->
-													<div class="control-group">
-														<label class="control-label" for="log_inCns">Login :</label>
-														<div class="controls">
-															<input id="log_inAcc" name="log_inAcc" maxlength="30" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-													
-													<!-- pwd -->
-													<div class="control-group">
-														<label class="control-label" for="pwdAcc">Mot de passe :</label>
-														<div class="controls">
-															<input id="pwdAcc" name="pwdAcc" type="text" class="form-control input-large" minlength="8" maxlength="15" required="">
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmAddAccueil"></label>
-															<div class="controls">
-																<button type="submit" id="confirmAddAccueil" name="confirmAddAccueil" class="btn btn-success btn-block">Enregistrer le nouveau réceptionniste</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<center>
-										<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-									</center>
-								</div>
-							</div>
-						</div>
-					</div>
 					<hr>
 					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
@@ -441,7 +122,6 @@
 								<th>Email</th>
 								<th>Login</th>
 								<th>Modifier</th>
-								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -455,96 +135,6 @@
 								<td th:text="${accueil.personne.login}"></td>
 								<td>
 									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modAccueil-modal"><span class="glyphicon glyphicon-pencil"></span></button>
-									<div class="modal fade bs-modal-sm" id="modAccueil-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-										<div class="modal-dialog modal-sm">
-											<div class="modal-content"><br>
-												<div class="modal-body">
-													<div id="myTabContent" class="tab-content">
-														<div class="tab-pane fade active in">
-															<form class="form-horizontal">
-																<fieldset>
-																<!-- Paramètres pour ajouter un nouveau réceptionniste -->
-																	<!-- Text -->
-																	<div class="control-group">
-																		<label class="control-label" for="modNomAcc">Nom :</label>
-																		<div class="controls">
-																			<input id="modNomAcc" name="modNomAcc" type="text" maxlength="40" class="form-control input-large" required="">
-																		</div>
-																	</div>
-
-																	<!-- Password -->
-																	<div class="control-group">
-																		<label class="control-label" for="modPrenomAcc">Prénom :</label>
-																		<div class="controls">
-																			<input id="modPrenomAcc" name="modPrenomAcc" type="text" maxlength="40" class="form-control input-large" required="">
-																		</div>
-																	</div>
-																	
-																	<!-- Mail -->
-																	<div class="control-group">
-																		<label class="control-label" for="modMailAcc">Mail :</label>
-																		<div class="controls">
-																			<input id="modMailAcc" name="modMailAcc" type="email" maxlength="60" class="form-control input-large" required="">
-																		</div>
-																	</div>
-																	
-																	<!-- Phone -->
-																	<div class="control-group">
-																		<label class="control-label" for="modTelephoneAcc">Téléphone :</label>
-																		<div class="controls">
-																			<input id="modTelephoneAcc" name="modTelephoneAcc" type="text" class="form-control input-large" maxlength="10" required="">
-																		</div>
-																	</div>
-																	
-																	<!-- Jour -->
-																	<div class="control-group">
-																		<label class="control-label" for="modJourAcc">Jour de travail :</label>
-																		<div class="controls">
-																			<input id="modJourAcc" name="modJourAcc" type="text" class="form-control input-large" required="">
-																		</div>
-																	</div>
-																	
-																	<!-- Log_in -->
-																	<div class="control-group">
-																		<label class="control-label" for="modLog_inCns">Login :</label>
-																		<div class="controls">
-																			<input id="modLog_inAcc" name="modLog_inAcc" maxlength="30" type="text" class="form-control input-large" required="">
-																		</div>
-																	</div>
-																	
-																	<!-- pwd -->
-																	<div class="control-group">
-																		<label class="control-label" for="modPwdAcc">Mot de passe :</label>
-																		<div class="controls">
-																			<input id="modPwdAcc" name="modPwdAcc" type="text" class="form-control input-large" minlength="8" maxlength="15" required="">
-																		</div>
-																	</div>
-																	
-																	<!-- Button -->
-																	<center>
-																		<div class="control-group">
-																			<label class="control-label" for="modConfirmModAccueil"></label>
-																			<div class="controls">
-																				<button type="submit" id="modConfirmModAccueil" name="modConfirmModAccueil" class="btn btn-success btn-block">Enregistrer les modifications</button>
-																			</div>
-																		</div>
-																	</center>
-																</fieldset>
-															</form>
-														</div>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<center>
-														<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-													</center>
-												</div>
-											</div>
-										</div>
-									</div>
-								</td>
-								<td>
-									<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
 						</tbody>
@@ -554,133 +144,6 @@
 					<h1>Rendez-vous</h1>
 					<hr>
 					<button class="btn btn-success" data-toggle="modal" data-target="#addRDV-modal">Ajouter un rendez-vous</button>
-					<div class="modal fade bs-modal-sm" id="addRDV-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content"><br>
-								<div class="bs-example bs-example-tabs">
-									<ul id="myTab" class="nav nav-tabs">
-										<li class="active"><a href="#addRDVDate" data-toggle="tab">Selon la date</a></li>
-										<li><a href="#addRDVCns" data-toggle="tab">Selon le conseiller</a></li>
-									</ul>
-								</div>
-								<div class="modal-body">
-									<div id="myTabContent" class="tab-content">
-										<div class="tab-pane fade active in" id="addRDVDate">
-											<form class="form-horizontal">
-												<fieldset>
-												<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
-													<!-- Date -->
-													<div class="control-group">
-														<label class="control-label" for="dateRDV1">Date :</label>
-														<div class="controls">
-															<script>
-																$("document").ready(function() {
-																	$("#dateRDV1").datepicker();
-																}) ;
-															</script>
-															<input id="dateRDV1" name="dateRDV1" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="Conseiller1">Conseiller :</label>
-														<div class="controls">
-															<select id="Conseiller1" name="Conseiller1" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="ClientRDV1">Client :</label>
-														<div class="controls">
-															<select id="ClientRDV1" name="ClientRDV1" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmRDV1"></label>
-															<div class="controls">
-																<button type="submit" id="confirmRDV1" name="confirmRDV1" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-										<div class="tab-pane fade" id="addRDVCns">
-											<form class="form-horizontal">
-												<fieldset>
-												<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="Conseiller2">Conseiller :</label>
-														<div class="controls">
-															<select id="Conseiller2" name="Conseiller2" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Date -->
-													<div class="control-group">
-														<label class="control-label" for="dateRDV2">Date :</label>
-														<div class="controls">
-															<script>
-																$(function() {
-																	$("#dateRDV2").datepicker();
-																}) ;
-															</script>
-															<input id="dateRDV2" name="dateRDV2" type="text" class="form-control input-large" required="">
-														</div>
-													</div>
-
-													<!-- Select -->
-													<div class="control-group">
-														<label class="control-label" for="ClientRDV2">Client :</label>
-														<div class="controls">
-															<select id="ClientRDV2" name="ClientRDV2" class="form-control input-large" required="">
-<!--																<option></option>
-																<option></option>
-																<option></option>
--->															</select>
-														</div>
-													</div>
-													
-													<!-- Button -->
-													<center>
-														<div class="control-group">
-															<label class="control-label" for="confirmAddRDV2"></label>
-															<div class="controls">
-																<button type="submit" id="confirmAddRDV2" name="confirmAddRDV2" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
-															</div>
-														</div>
-													</center>
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<center>
-										<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-									</center>
-								</div>
-							</div>
-						</div>
-					</div>
 					<hr>
 					<span class="glyphicon glyphicon-refresh" style="float:right;" onclick="javascript:refresh();"></span>
 					<table class="table table-hover table-responsive">
@@ -691,7 +154,6 @@
 								<th>Client</th>
 								<th>Conseiller</th>
 								<th>Modifier</th>
-								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -705,10 +167,7 @@
 								<td th:text="${rdv.}"></td>			<!-- A FINIR -->
 								<td th:text="${rdv.}"></td>			<!-- A FINIR -->
 								<td>
-									<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
-								</td>
-								<td>
-									<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modRDV-modal"><span class="glyphicon glyphicon-pencil"></span></button>
 								</td>
 							</tr>
 						</tbody>
@@ -718,7 +177,756 @@
 		</div>
 		
 		<footer class="container-fluid text-center">
-			<p></p>
+			<hr>
 		</footer>
+		
+		<!-- Modules -->
+		
+		<!-- Paramètres -->
+		<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="bs-example bs-example-tabs">
+						<ul id="myTab" class="nav nav-tabs">
+							<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
+							<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="parameters">
+								<form class="form-horizontal">
+									<fieldset>
+									<!-- Parameters for the current user -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="Nom">Nom :</label>
+											<div class="controls">
+												<span class="label label-info" th:text="${salarie.nom}">Nom</span>
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="prenom">Prénom :</label>
+											<div class="controls">
+												<span class="label label-info" th:text="${salarie.prenom}">Prénom</span>
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="email">Mail :</label>
+											<div class="controls">
+												<span class="label label-info" th:text="${salarie.mail}">Mail</span>
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="telephone">Téléphone :</label>
+											<div class="controls">
+												<span class="label label-info" th:text="${salarie.telephone}">Téléphone</span>
+											</div>
+										</div>
+										
+										<!-- Profil -->
+										<div class="control-group">
+											<label class="control-label" for="telephone">Profil :</label>
+											<div class="controls">
+												<span class="label label-info">Administrateur</span>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="logout">
+								<div class="form-horizontal">
+									<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
+									<hr>
+									<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
+								</div><!-- A CHANGER -->
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Ajout client -->
+		<div class="modal fade bs-modal-sm" id="addClient-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in">
+								<form id="formCreerClient" class="form-horizontal" method="POST" action="/adm/nouveauClient">
+									<fieldset>
+									<!-- Parameters for adding a new client -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="nomCli">Nom :</label>
+											<div class="controls">
+												<input id="nomCli" name="nomCli" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="prenomCli">Prénom :</label>
+											<div class="controls">
+												<input id="prenomCli" name="prenomCli" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="mailCli">Mail :</label>
+											<div class="controls">
+												<input id="mailCli" name="mailCli" type="email" maxlength="60" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="telephoneCli">Téléphone :</label>
+											<div class="controls">
+												<input id="telephoneCli" name="telephoneCli" maxlength="10" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmAddClient"></label>
+												<div class="controls">
+													<button type="submit" id="confirmAddClient" name="confirmAddClient" class="btn btn-success btn-block">Enregistrer le nouveau client</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modification client -->
+		<div class="modal fade bs-modal-sm" id="modClient-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in">
+								<form id="formModifierClient" class="form-horizontal" method="POST" action="/adm/modifierClient">
+									<fieldset>
+									<!-- Parameters for adding a new client -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="modNomCli">Nom :</label>
+											<div class="controls">
+												<input id="modNomCli" name="modNomCli" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="modPrenomCli">Prénom :</label>
+											<div class="controls">
+												<input id="modPrenomCli" name="modPrenomCli" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="modMailCli">Mail :</label>
+											<div class="controls">
+												<input id="modMailCli" name="modMailCli" type="email" maxlength="60" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="modTelephoneCli">Téléphone :</label>
+											<div class="controls">
+												<input id="modTelephoneCli" name="modTelephoneCli" maxlength="10" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmModClient"></label>
+												<div class="controls">
+													<button type="submit" id="confirmModClient" name="confirmModClient" class="btn btn-success btn-block">Enregistrer les modifications</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="addConseiller-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in">
+								<form id="formCreerConseiller" class="form-horizontal" method="POST" action="/adm/nouveauConseiller">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau conseiller -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="nomCns">Nom :</label>
+											<div class="controls">
+												<input id="nomCns" name="nomCns" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="prenomCns">Prénom :</label>
+											<div class="controls">
+												<input id="prenomCns" name="prenomCns" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="mailCns">Mail :</label>
+											<div class="controls">
+												<input id="mailCns" name="mailCns" type="email" maxlength="60" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="telephoneCns">Téléphone :</label>
+											<div class="controls">
+												<input id="telephoneCns" name="telephoneCns" type="text" class="form-control input-large" max-length="10" required="">
+											</div>
+										</div>
+										
+										<!-- Jour -->
+										<div class="control-group">
+											<label class="control-label" for="jourCns">Jour de travail :</label>
+											<div class="controls">
+												<input id="jourCns" name="jourCns" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Log_in -->
+										<div class="control-group">
+											<label class="control-label" for="log_inCns">Login :</label>
+											<div class="controls">
+												<input id="log_inCns" name="log_inCns" type="text" maxlength="30" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- pwd -->
+										<div class="control-group">
+											<label class="control-label" for="pwdCns">Mot de passe :</label>
+											<div class="controls">
+												<input id="pwdCns" name="pwdCns" type="text" class="form-control input-large" minlength="8" maxlength="15" required="">
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmAddConseiller"></label>
+												<div class="controls">
+													<button type="submit" id="confirmAddConseiller" name="confirmAddConseiller" class="btn btn-success btn-block">Enregistrer le nouveau conseiller</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="modConseiller-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in">
+								<form id="formModifierConseiller" class="form-horizontal" method="POST" action="/adm/modifierConseiller">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau conseiller -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="modNomCns">Nom :</label>
+											<div class="controls">
+												<input id="modNomCns" name="modNomCns" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="modPrenomCns">Prénom :</label>
+											<div class="controls">
+												<input id="modPrenomCns" name="modPrenomCns" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="modMailCns">Mail :</label>
+											<div class="controls">
+												<input id="modMailCns" name="modMailCns" type="email" maxlength="60" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="modTelephoneCns">Téléphone :</label>
+											<div class="controls">
+												<input id="modTelephoneCns" name="modTelephoneCns" type="text" class="form-control input-large" max-length="10" required="">
+											</div>
+										</div>
+										
+										<!-- Jour -->
+										<div class="control-group">
+											<label class="control-label" for="modJourCns">Jour de travail :</label>
+											<div class="controls">
+												<input id="modJourCns" name="modJourCns" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Log_in -->
+										<div class="control-group">
+											<label class="control-label" for="modLog_inCns">Login :</label>
+											<div class="controls">
+												<input id="modLog_inCns" name="modLog_inCns" type="text" maxlength="30" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- pwd -->
+										<div class="control-group">
+											<label class="control-label" for="modPwdCns">Mot de passe :</label>
+											<div class="controls">
+												<input id="modPwdCns" name="modPwdCns" type="text" class="form-control input-large" minlength="8" maxlength="15" required="">
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmModConseiller"></label>
+												<div class="controls">
+													<button type="submit" id="confirmModConseiller" name="confirmModConseiller" class="btn btn-success btn-block">Enregistrer les modifications</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="addAccueil-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in">
+								<form id="formCreerAccueil" class="form-horizontal" method="POST" action="/adm/nouveauAccueil"">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau réceptionniste -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="nomAcc">Nom :</label>
+											<div class="controls">
+												<input id="nomAcc" name="nomAcc" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="prenomAcc">Prénom :</label>
+											<div class="controls">
+												<input id="prenomAcc" name="prenomAcc" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="mailAcc">Mail :</label>
+											<div class="controls">
+												<input id="mailAcc" name="mailAcc" type="email" maxlength="60" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="telephoneAcc">Téléphone :</label>
+											<div class="controls">
+												<input id="telephoneAcc" name="telephoneAcc" type="text" class="form-control input-large" maxlength="10" required="">
+											</div>
+										</div>
+										
+										<!-- Jour -->
+										<div class="control-group">
+											<label class="control-label" for="jourAcc">Jour de travail :</label>
+											<div class="controls">
+												<input id="jourAcc" name="jourAcc" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Log_in -->
+										<div class="control-group">
+											<label class="control-label" for="log_inCns">Login :</label>
+											<div class="controls">
+												<input id="log_inAcc" name="log_inAcc" maxlength="30" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- pwd -->
+										<div class="control-group">
+											<label class="control-label" for="pwdAcc">Mot de passe :</label>
+											<div class="controls">
+												<input id="pwdAcc" name="pwdAcc" type="text" class="form-control input-large" minlength="8" maxlength="15" required="">
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmAddAccueil"></label>
+												<div class="controls">
+													<button type="submit" id="confirmAddAccueil" name="confirmAddAccueil" class="btn btn-success btn-block">Enregistrer le nouveau réceptionniste</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="modAccueil-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in">
+								<form id="formModifierAccueil" class="form-horizontal" method="POST" action="/adm/modifierAccueil">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau réceptionniste -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="modNomAcc">Nom :</label>
+											<div class="controls">
+												<input id="modNomAcc" name="modNomAcc" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="modPrenomAcc">Prénom :</label>
+											<div class="controls">
+												<input id="modPrenomAcc" name="modPrenomAcc" type="text" maxlength="40" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="modMailAcc">Mail :</label>
+											<div class="controls">
+												<input id="modMailAcc" name="modMailAcc" type="email" maxlength="60" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="modTelephoneAcc">Téléphone :</label>
+											<div class="controls">
+												<input id="modTelephoneAcc" name="modTelephoneAcc" type="text" class="form-control input-large" maxlength="10" required="">
+											</div>
+										</div>
+										
+										<!-- Jour -->
+										<div class="control-group">
+											<label class="control-label" for="modJourAcc">Jour de travail :</label>
+											<div class="controls">
+												<input id="modJourAcc" name="modJourAcc" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- Log_in -->
+										<div class="control-group">
+											<label class="control-label" for="modLog_inCns">Login :</label>
+											<div class="controls">
+												<input id="modLog_inAcc" name="modLog_inAcc" maxlength="30" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+										
+										<!-- pwd -->
+										<div class="control-group">
+											<label class="control-label" for="modPwdAcc">Mot de passe :</label>
+											<div class="controls">
+												<input id="modPwdAcc" name="modPwdAcc" type="text" class="form-control input-large" minlength="8" maxlength="15" required="">
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="modConfirmModAccueil"></label>
+												<div class="controls">
+													<button type="submit" id="modConfirmModAccueil" name="modConfirmModAccueil" class="btn btn-success btn-block">Enregistrer les modifications</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="addRDV-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="bs-example bs-example-tabs">
+						<ul id="myTab" class="nav nav-tabs">
+							<li class="active"><a href="#addRDVDate" data-toggle="tab">Selon la date</a></li>
+							<li><a href="#addRDVCns" data-toggle="tab">Selon le conseiller</a></li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="addRDVDate">
+								<form id="formCreerRDVdate" class="form-horizontal" method="POST" action="/adm/nouveauRDVDate">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
+										<!-- Date -->
+										<div class="control-group">
+											<label class="control-label" for="dateRDV1">Date :</label>
+											<div class="controls">
+												<script>
+													$("document").ready(function() {
+														$("#dateRDV1").datepicker();
+													}) ;
+												</script>
+												<input id="dateRDV1" name="dateRDV1" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="Conseiller1">Conseiller :</label>
+											<div class="controls">
+												<select id="Conseiller1" name="Conseiller1" class="form-control input-large" required="">
+	<!--																<option></option>
+													<option></option>
+													<option></option>
+	-->															</select>
+											</div>
+										</div>
+										
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="ClientRDV1">Client :</label>
+											<div class="controls">
+												<select id="ClientRDV1" name="ClientRDV1" class="form-control input-large" required="">
+	<!--																<option></option>
+													<option></option>
+													<option></option>
+	-->															</select>
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmAddRDV1"></label>
+												<div class="controls">
+													<button type="submit" id="confirmAddRDV1" name="confirmAddRDV1" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="addRDVCns">
+								<form id="formCreerRDVCns" class="form-horizontal" method="POST" action="/adm/nouveauRDVCns">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="Conseiller2">Conseiller :</label>
+											<div class="controls">
+												<select id="Conseiller2" name="Conseiller2" class="form-control input-large" required="">
+	<!--																<option></option>
+													<option></option>
+													<option></option>
+	-->															</select>
+											</div>
+										</div>
+										
+										<!-- Date -->
+										<div class="control-group">
+											<label class="control-label" for="dateRDV2">Date :</label>
+											<div class="controls">
+												<script>
+													$(function() {
+														$("#dateRDV2").datepicker();
+													}) ;
+												</script>
+												<input id="dateRDV2" name="dateRDV2" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="ClientRDV2">Client :</label>
+											<div class="controls">
+												<select id="ClientRDV2" name="ClientRDV2" class="form-control input-large" required="">
+	<!--																<option></option>
+													<option></option>
+													<option></option>
+	-->															</select>
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmAddRDV2"></label>
+												<div class="controls">
+													<button type="submit" id="confirmAddRDV2" name="confirmAddRDV2" class="btn btn-success btn-block">Enregistrer le nouveau rendez-vous</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-modal-sm" id="modRDV-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="modRDV">
+								<form id="formModifierRDV" class="form-horizontal" method="POST" action="/adm/modifierRDV">
+									<fieldset>
+									<!-- Paramètres pour ajouter un nouveau rendez-vous selon la date -->
+										<!-- Date -->
+										<div class="control-group">
+											<label class="control-label" for="modDateRDV">Date :</label>
+											<div class="controls">
+												<script>
+													$("document").ready(function() {
+														$("#modDateRDV").datepicker();
+													}) ;
+												</script>
+												<input id="modDateRDV" name="modDateRDV" type="text" class="form-control input-large" required="">
+											</div>
+										</div>
+
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="modConseiller">Conseiller :</label>
+											<div class="controls">
+												<select id="modConseiller" name="modConseiller" class="form-control input-large" required="">
+	<!--																<option></option>
+													<option></option>
+													<option></option>
+	-->															</select>
+											</div>
+										</div>
+										
+										<!-- Select -->
+										<div class="control-group">
+											<label class="control-label" for="modClientRDV">Client :</label>
+											<div class="controls">
+												<select id="modClientRDV" name="modClientRDV" class="form-control input-large" required="">
+	<!--																<option></option>
+													<option></option>
+													<option></option>
+	-->																</select>
+											</div>
+										</div>
+										
+										<!-- Button -->
+										<center>
+											<div class="control-group">
+												<label class="control-label" for="confirmModRDV"></label>
+												<div class="controls">
+													<button type="submit" id="confirmModRDV" name="confirmModRDV" class="btn btn-success btn-block">Enregistrer les modifications</button>
+												</div>
+											</div>
+										</center>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
