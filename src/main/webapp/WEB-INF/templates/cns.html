@@ -37,88 +37,6 @@
 						<li>
 							<a href="#" data-toggle="modal" data-target="#parameters-modal">
 								<span class="glyphicon glyphicon-option-vertical"></span> Paramètres</a>
-							<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-sm">
-									<div class="modal-content"><br>
-										<div class="bs-example bs-example-tabs">
-											<ul id="myTab" class="nav nav-tabs">
-												<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
-												<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
-											</ul>
-										</div>
-										<div class="modal-body">
-											<div id="myTabContent" class="tab-content">
-												<div class="tab-pane fade active in" id="parameters">
-													<form class="form-horizontal">
-														<fieldset>
-														<!-- Parameters for the current user -->
-															<!-- Text -->
-															<div class="control-group">
-																<label class="control-label" for="Nom">Nom :</label>
-																<div class="controls">
-																	<span class="label label-info">Nom</span>
-																</div>
-															</div>
-
-															<!-- Password -->
-															<div class="control-group">
-																<label class="control-label" for="prenom">Prénom :</label>
-																<div class="controls">
-																	<span class="label label-info">Prénom</span>
-																</div>
-															</div>
-															
-															<!-- Mail -->
-															<div class="control-group">
-																<label class="control-label" for="email">Mail :</label>
-																<div class="controls">
-																	<span class="label label-info">Mail</span>
-																</div>
-															</div>
-															
-															<!-- Phone -->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Téléphone :</label>
-																<div class="controls">
-																	<span class="label label-info">Téléphone</span>
-																</div>
-															</div>
-															
-															<!-- Status -->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Profil :</label>
-																<div class="controls">
-																	<span class="label label-info">Profil</span>
-																</div>
-															</div>
-															
-															<!-- Jour de travail -->
-															<div class="control-group">
-																<label class="control-label" for="telephone">Jour de travail :</label>
-																<div class="controls">
-																	<span class="label label-info">Jour de travail</span>
-																</div>
-															</div>
-														</fieldset>
-													</form>
-												</div>
-												<div class="tab-pane fade" id="logout">
-													<div class="form-horizontal">
-														<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
-														<hr>
-														<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
-													</div><!-- A CHANGER -->
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<center>
-												<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-											</center>
-										</div>
-									</div>
-								</div>
-							</div>
 						</li>
 					</ul>
 				</div>
@@ -207,5 +125,90 @@
 		<footer class="container-fluid text-center">
 			<p></p>
 		</footer>
+		
+		<!-- Modules -->
+		
+		<div class="modal fade bs-modal-sm" id="parameters-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content"><br>
+					<div class="bs-example bs-example-tabs">
+						<ul id="myTab" class="nav nav-tabs">
+							<li class="active"><a href="#parameters" data-toggle="tab">Mon compte</a></li>
+							<li class=""><a href="#logout" data-toggle="tab">Déconnexion</a></li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade active in" id="parameters">
+								<form class="form-horizontal">
+									<fieldset>
+									<!-- Parameters for the current user -->
+										<!-- Text -->
+										<div class="control-group">
+											<label class="control-label" for="Nom">Nom :</label>
+											<div class="controls">
+												<span class="label label-info">Nom</span>
+											</div>
+										</div>
+
+										<!-- Password -->
+										<div class="control-group">
+											<label class="control-label" for="prenom">Prénom :</label>
+											<div class="controls">
+												<span class="label label-info">Prénom</span>
+											</div>
+										</div>
+										
+										<!-- Mail -->
+										<div class="control-group">
+											<label class="control-label" for="email">Mail :</label>
+											<div class="controls">
+												<span class="label label-info">Mail</span>
+											</div>
+										</div>
+										
+										<!-- Phone -->
+										<div class="control-group">
+											<label class="control-label" for="telephone">Téléphone :</label>
+											<div class="controls">
+												<span class="label label-info">Téléphone</span>
+											</div>
+										</div>
+										
+										<!-- Status -->
+										<div class="control-group">
+											<label class="control-label" for="telephone">Profil :</label>
+											<div class="controls">
+												<span class="label label-info">Conseiller</span>
+											</div>
+										</div>
+										
+										<!-- Jour de travail -->
+										<div class="control-group">
+											<label class="control-label" for="telephone">Jour de travail :</label>
+											<div class="controls">
+												<span class="label label-info">Jour de travail</span>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="logout">
+								<div class="form-horizontal">
+									<center><div class="controls">Êtes-vous sûr de vouloir vous déconnecter ?</div></center>
+									<hr>
+									<div class="controls"><a href="javascript:;" class="btn btn-danger btn-block">Déconnexion</a></div>
+								</div><!-- A CHANGER -->
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
