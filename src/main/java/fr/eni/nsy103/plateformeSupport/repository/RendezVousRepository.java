@@ -1,5 +1,6 @@
 package fr.eni.nsy103.plateformeSupport.repository;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,5 +16,6 @@ public interface RendezVousRepository  extends JpaRepository<RendezVous,Long>{
 	@Query("Select rdv From RendezVous rdv where rdv.rdvPK.salarie.id = :salarieid and rdv.rdvPK.client.id = :clientid ")
 	public RendezVous findRendezVousRepositoryByIdsalarie(@Param("salarieid") int salarieId,@Param("clientid") int c);
 	
-	//public List<Jours> findRdvLibreParJour(@Param(""));
+	@Query("select r.jour from RendezVous r where r.jour >= :dateDebut and r.jour <= :dateFin")
+	public List<Date> findRdvBetweenDates(@Param("dateDebut") Date dateDebut,@Param("dateFin") Date dateFin);
 }

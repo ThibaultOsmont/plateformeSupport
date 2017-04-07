@@ -15,12 +15,11 @@ import javax.persistence.Table;
 public class Client {
 
 	@Id
-	@SequenceGenerator(name = "SEQ_CLIENTS", sequenceName = "SEQ_CLIENTS")
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_CLIENTS")
-	private Integer id_client;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id_client;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "id",unique = true,nullable = false)
+	@JoinColumn(name = "personneId",unique = true,nullable = false)
 	private Personne client;	
 
 	public Integer getId_client() {
@@ -37,16 +36,14 @@ public class Client {
 
 	public void setPersonne(Personne personne) {
 		this.client = personne;
-	}
+	}	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((id_client == null) ? 0 : id_client.hashCode());
-		result = prime * result
-				+ ((client == null) ? 0 : client.hashCode());
+		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + id_client;
 		return result;
 	}
 
@@ -59,15 +56,12 @@ public class Client {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
-		if (id_client == null) {
-			if (other.id_client != null)
-				return false;
-		} else if (!id_client.equals(other.id_client))
-			return false;
 		if (client == null) {
 			if (other.client != null)
 				return false;
 		} else if (!client.equals(other.client))
+			return false;
+		if (id_client != other.id_client)
 			return false;
 		return true;
 	}

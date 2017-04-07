@@ -1,5 +1,6 @@
 package fr.eni.nsy103.plateformeSupport.repository;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import fr.eni.nsy103.plateformeSupport.model.Salarie;
+import fr.eni.nsy103.plateformeSupport.util.enums.Jours;
 
 @Repository
 public interface SalarieRepository  extends JpaRepository<Salarie,Long>{
@@ -44,4 +46,7 @@ public interface SalarieRepository  extends JpaRepository<Salarie,Long>{
 	@Query("SELECT s FROM Salarie s INNER JOIN Profil p ON s.id_salarie = p.id_profil "
 			+ "WHERE p.userStatus like 'ADM'")
 	public List<Salarie> findAllAdmin();
+	
+	@Query("SELECT s.jour from Salarie s where presence = true and s.id_salarie = :salarieid") 
+	public List<Jours> findRdvLibreParJour(@Param("salarieid") int salarieId);
 }
