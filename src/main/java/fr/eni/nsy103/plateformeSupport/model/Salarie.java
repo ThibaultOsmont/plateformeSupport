@@ -40,11 +40,11 @@ public class Salarie implements Serializable {
 	private Short jour;
 
 	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "PERSONNE_ID")
+	@JoinColumn(name = "personneId")
 	private Personne personne;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "PROFIL_ID")
+	@JoinColumn(name = "profilId")
 	private Profil profil;
 
 	public Integer getId() {

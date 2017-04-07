@@ -2,47 +2,57 @@ package fr.eni.nsy103.plateformeSupport.model.pk;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import fr.eni.nsy103.plateformeSupport.model.Client;
+import fr.eni.nsy103.plateformeSupport.model.Salarie;
 
 @Embeddable
 public class RendezVousPK implements Serializable{
-	private static final long serialVersionUID = 1L;	
+	private static final long serialVersionUID = 1L;
 	
-	private Integer salarieId;
-	private Integer clientId;
+	@OneToOne
+	@JoinColumn(name = "clientId")
+	private Client client;
+	
+	@OneToOne
+	@JoinColumn(name = "salarieId")
+	private Salarie salarie;
 	
 	public RendezVousPK(){		
 	}
 	
-	public RendezVousPK(Integer salarieId,Integer clientId){
-		this.salarieId = salarieId;
-		this.clientId = clientId;
+	public RendezVousPK(Client client,Salarie salarie){
+		this.client = client;
+		this.salarie = salarie;
 	}
 
-	public Integer getSalarieId() {
-		return salarieId;
+	public Client getClient() {
+		return client;
 	}
 
-	public void setSalarieId(Integer salarieId) {
-		this.salarieId = salarieId;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
-	public Integer getClientId() {
-		return clientId;
+	public Salarie getSalarie() {
+		return salarie;
 	}
 
-	public void setClientId(Integer clientId) {
-		this.clientId = clientId;
+	public void setSalarie(Salarie salarie) {
+		this.salarie = salarie;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((clientId == null) ? 0 : clientId.hashCode());
-		result = prime * result
-				+ ((salarieId == null) ? 0 : salarieId.hashCode());
+		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + ((salarie == null) ? 0 : salarie.hashCode());
 		return result;
 	}
 
@@ -55,18 +65,16 @@ public class RendezVousPK implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		RendezVousPK other = (RendezVousPK) obj;
-		if (clientId == null) {
-			if (other.clientId != null)
+		if (client == null) {
+			if (other.client != null)
 				return false;
-		} else if (!clientId.equals(other.clientId))
+		} else if (!client.equals(other.client))
 			return false;
-		if (salarieId == null) {
-			if (other.salarieId != null)
+		if (salarie == null) {
+			if (other.salarie != null)
 				return false;
-		} else if (!salarieId.equals(other.salarieId))
+		} else if (!salarie.equals(other.salarie))
 			return false;
 		return true;
-	}
-
-
+	}	
 }
