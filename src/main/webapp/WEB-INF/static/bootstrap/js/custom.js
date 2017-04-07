@@ -36,7 +36,3 @@ function checkPass() {
 		message.innerHTML = "Passwords Do Not Match!"
 	}
 }
-
-function refresh(table) {
-	$(table).load(window.location.href +  ' ' + table, console.log("OK"));
-}
