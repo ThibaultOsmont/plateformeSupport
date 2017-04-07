@@ -4,12 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import fr.eni.nsy103.plateformeSupport.util.enums.UserStatus;
 
 /**
  * Table Profil
@@ -27,7 +28,9 @@ public class Profil implements Serializable {
 	private static final long serialVersionUID = 9008611685057435478L;
 
 	@Id
-	private String id_profil;
+	@SequenceGenerator(name = "SEQ_PROFILS", sequenceName = "SEQ_PROFILS")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_PROFILS")
+	private Integer id_profil;
 
 	@Column(name = "USERSTATUS")
 	private String userStatus;
@@ -36,11 +39,11 @@ public class Profil implements Serializable {
 	@JoinColumn(name = "ID_PROFIL")
 	private Salarie salarie;
 
-	public String getId() {
+	public Integer getId() {
 		return id_profil;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id_profil = id;
 	}
 

@@ -3,40 +3,35 @@ package fr.eni.nsy103.plateformeSupport.model.pk;
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import fr.eni.nsy103.plateformeSupport.model.Client;
-import fr.eni.nsy103.plateformeSupport.model.Salarie;
 
 @Embeddable
 public class RendezVousPK implements Serializable{
 	private static final long serialVersionUID = 1L;	
 	
-	private String salarieId;
-	private String clientId;
+	private Integer salarieId;
+	private Integer clientId;
 	
 	public RendezVousPK(){		
 	}
 	
-	public RendezVousPK(String salarieId,String clientId){
+	public RendezVousPK(Integer salarieId,Integer clientId){
 		this.salarieId = salarieId;
 		this.clientId = clientId;
 	}
 
-	public String getSalarieId() {
+	public Integer getSalarieId() {
 		return salarieId;
 	}
 
-	public void setSalarieId(String salarieId) {
+	public void setSalarieId(Integer salarieId) {
 		this.salarieId = salarieId;
 	}
 
-	public String getClientId() {
+	public Integer getClientId() {
 		return clientId;
 	}
 
-	public void setClientId(String clientId) {
+	public void setClientId(Integer clientId) {
 		this.clientId = clientId;
 	}
 

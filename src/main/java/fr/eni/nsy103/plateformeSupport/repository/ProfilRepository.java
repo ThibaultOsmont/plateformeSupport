@@ -20,5 +20,5 @@ public interface ProfilRepository  extends JpaRepository<Profil,Long>{
 	 * 		Le profil s'il existe ou null.
 	 */
 	@Query("SELECT p  FROM Profil p where p.id_profil = :id")
-	public Profil findById(@Param("id") String id);
+	public Profil findById(@Param("id") Integer id);
 }

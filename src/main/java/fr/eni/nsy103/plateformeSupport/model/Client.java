@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,19 +14,20 @@ import javax.persistence.Table;
 public class Client {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id_client;
+	@SequenceGenerator(name = "SEQ_CLIENTS", sequenceName = "SEQ_CLIENTS")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_CLIENTS")
+	private Integer id_client;
 	
 	@OneToOne(mappedBy = "client")
 	@JoinColumn(name = "ID_CLIENT")
 	private Personne client;
 	
 
-	public String getId_client() {
+	public Integer getId_client() {
 		return id_client;
 	}
 
-	public void setId_client(String id_client) {
+	public void setId_client(Integer id_client) {
 		this.id_client = id_client;
 	}
 
