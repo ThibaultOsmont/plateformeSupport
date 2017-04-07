@@ -33,8 +33,8 @@ public class Salarie implements Serializable {
 	@Column(name = "PWD")
 	private String pwd;
 	
-	@Column(name = "PRESENCE")
-	private Short presence;
+	@Column(name = "PRESENCE" , nullable = false, columnDefinition = "bit default 0")
+	private boolean presence;
 	
 	@Column(name = "JOUR")
 	private Short jour;
@@ -46,6 +46,10 @@ public class Salarie implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "profilId")
 	private Profil profil;
+	
+	public Salarie(){
+		presence = false;
+	}
 
 	public Integer getId() {
 		return id_salarie;
@@ -71,11 +75,11 @@ public class Salarie implements Serializable {
 		this.pwd = password;
 	}
 
-	public short getPresence() {
+	public boolean getPresence() {
 		return presence;
 	}
 
-	public void setPresence(short presence) {
+	public void setPresence(boolean presence) {
 		this.presence = presence;
 	}
 
@@ -93,18 +97,21 @@ public class Salarie implements Serializable {
 
 	public void setPersonne(Personne personne) {
 		this.personne = personne;
-	}
+	}	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_salarie == null) ? 0 : id_salarie.hashCode());
-		result = prime * result + jour;
+		result = prime * result
+				+ ((id_salarie == null) ? 0 : id_salarie.hashCode());
+		result = prime * result + ((jour == null) ? 0 : jour.hashCode());
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result
-				+ ((pwd == null) ? 0 : pwd.hashCode());
-		result = prime * result + presence;
+				+ ((personne == null) ? 0 : personne.hashCode());
+		result = prime * result + (presence ? 1231 : 1237);
+		result = prime * result + ((profil == null) ? 0 : profil.hashCode());
+		result = prime * result + ((pwd == null) ? 0 : pwd.hashCode());
 		return result;
 	}
 
@@ -122,19 +129,32 @@ public class Salarie implements Serializable {
 				return false;
 		} else if (!id_salarie.equals(other.id_salarie))
 			return false;
-		if (jour != other.jour)
+		if (jour == null) {
+			if (other.jour != null)
+				return false;
+		} else if (!jour.equals(other.jour))
 			return false;
 		if (login == null) {
 			if (other.login != null)
 				return false;
 		} else if (!login.equals(other.login))
 			return false;
+		if (personne == null) {
+			if (other.personne != null)
+				return false;
+		} else if (!personne.equals(other.personne))
+			return false;
+		if (presence != other.presence)
+			return false;
+		if (profil == null) {
+			if (other.profil != null)
+				return false;
+		} else if (!profil.equals(other.profil))
+			return false;
 		if (pwd == null) {
 			if (other.pwd != null)
 				return false;
 		} else if (!pwd.equals(other.pwd))
-			return false;
-		if (presence != other.presence)
 			return false;
 		return true;
 	}
