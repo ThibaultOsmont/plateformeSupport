@@ -201,13 +201,22 @@
 								<th>Supprimer</th>
 							</tr>
 						</thead>
-						<tbody><!-- A CHANGER -->
-<!--							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
+						<tbody>
+							<tr th:if="${clientsAccuiel == null}">
+								<td colspan="5">Aucun client existant pour le moment</td>
 							</tr>
--->						</tbody>
+							<tr th:if="${clientsAccuiel !=null}" th:each="client, status: ${clientsAccuiel}">
+								<td th:text="${client.personne.nom + ' ' + client.personne.prenom}"></td>
+								<td th:text="${client.personne.telephone}"></td>
+								<td th:text="${client.personne.mail}"></td>
+								<td>
+									<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+								</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 				<div class="col-sm-8 text-left tab_content" id="Conseillers" style="display:none;">
@@ -226,16 +235,24 @@
 								<th>Supprimer</th>
 							</tr>
 						</thead>
-						<tbody><!-- A CHANGER -->
-<!--							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+						<tbody>
+							<tr th:if="${conseillersAccueil == null}">
+								<td colspan="5">Aucun conseiller existant pour le moment</td>
 							</tr>
--->						</tbody>
+							<tr th:if="${conseillersAccueil !=null}" th:each="conseiller, status: ${conseillersAccueil}">
+								<td th:text="${conseiller.personne.nom + ' ' + conseiller.personne.prenom}"></td>
+								<td th:text="${conseiller.personne.telephone}"></td>
+								<td th:text="${conseiller.personne.mail}"></td>
+								<td th:text="${conseiller.personne.login}"></td>
+								<td th:text="${conseiller.personne.jourDeTravail}"></td>
+								<td>
+									<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+								</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 				<div class="col-sm-8 text-left tab_content" id="RendezVous" style="display:none;">
@@ -382,18 +399,24 @@
 								<th>Supprimer</th>
 							</tr>
 						</thead>
-						<tbody><!-- A CHANGER -->
-<!--							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+						<tbody>
+							<tr th:if="${rdvAdmin == null}">
+								<td colspan="5">Aucun rendez-vous existant pour le moment</td>
 							</tr>
--->						</tbody>
+							<tr th:if="${rdvAdmin !=null}" th:each="rdv, status: ${rdvAdmin}">
+								<td th:text="${rdv.jour}"></td>
+								<td th:if="${rdv.matin}">matin</td>
+								<td th:if="${!rdv.matin}">après-midi</td>
+								<td th:text="${rdv.}"></td>			<!-- A FINIR -->
+								<td th:text="${rdv.}"></td>			<!-- A FINIR -->
+								<td>
+									<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+								</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 			</div>
